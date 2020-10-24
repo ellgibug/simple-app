@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Auth layout</h1>
+        <div class="heading-1">Auth layout</div>
 
         <div class="links">
             <div v-for="link in links" class="links__item">

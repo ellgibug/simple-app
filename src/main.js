@@ -4,6 +4,8 @@ import router from './router'
 import {store} from './store'
 import axios from 'axios';
 
+import "./styles/index.scss"
+
 require('dotenv').config();
 
 axios.defaults.baseURL = process.env.VUE_APP_API_URL;
