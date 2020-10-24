@@ -1,3 +1,11 @@
 export default {
-    name: "index"
+    name: "dashboard",
+    data: () => ({
+
+    }),
+    methods: {
+        openLoginPage(){
+            window.location.href = '/login'
+        }
+    }
 }

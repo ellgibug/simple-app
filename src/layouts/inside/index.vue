@@ -1,6 +1,9 @@
 <template>
     <div>
         <h1>Inside layout</h1>
+        <button @click="sendLogoutRequest">Logout</button>
+        <hr>
+        <router-view/>
     </div>
 </template>
 
