@@ -1,15 +1,22 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue  from 'vue';
+import Vuex from 'vuex';
 
-Vue.use(Vuex)
+import user from "./user"
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+import createPersistedState from "vuex-persistedstate"
+
+Vue.use(Vuex);
+
+const virtual = new Vuex.Store({
   modules: {
-  }
-})
+    user
+  },
+  plugins: [
+    createPersistedState({
+      key: "helpy",
+      paths: ["user"]
+    })
+  ]
+});
+
+export const store = virtual;
