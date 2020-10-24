@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1>Inside layout</h1>
+        {{ user }}
         <button @click="sendLogoutRequest">Logout</button>
         <hr>
         <router-view/>
