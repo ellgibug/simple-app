@@ -46,7 +46,7 @@ export const auth = [
         }
     },
     {
-        path: '/restore-password',
+        path: '/restore-password/:userCode/:restoreToken',
         name: 'RestorePassword',
         beforeEnter: ifNotAuthenticated,
         meta: {

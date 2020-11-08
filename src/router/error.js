@@ -3,7 +3,7 @@ export const errors = [
         path: '*',
         name: 'PageNotFound',
         meta: {
-            layout: 'errors/index',
+            layout: 'error/index',
             title: 'PageNotFound'
         },
         component: function () {
