@@ -1,0 +1,16 @@
+.page{
+  &__navbar{
+    background: white;
+  }
+  &__content{
+    //min-height: 100vh;
+    background: #f9f9f9;
+  }
+}
+
+.container{
+  max-width: 960px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+

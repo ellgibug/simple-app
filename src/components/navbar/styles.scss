@@ -1,0 +1,25 @@
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__section{
+
+  }
+}
+
+.navbar-section{
+  display: flex;
+  align-items: center;
+  &__item:not(:last-child){
+    margin-right: 30px;
+  }
+}
+
+.pages{
+  display: flex;
+  align-items: center;
+  &__item:not(:last-child){
+    margin-right: 15px;
+  }
+}

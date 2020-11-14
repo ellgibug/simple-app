@@ -1,21 +1,30 @@
 import request from "../../helpers/request";
-import Navbar from "../../components/navbar/index"
 import {mapActions, mapGetters} from "vuex"
 
 export default {
     name: "login",
 
-
-    components: {
-        'navbar': Navbar
-    },
-
     data: () => ({
-
+        links:[
+            {
+                title: 'Личный кабинет',
+                route: 'Profile'
+            },
+            {
+                title: 'Проекты',
+                route: 'Projects'
+            },
+            {
+                title: 'Организация',
+                route: 'UsersInOrganization'
+            }
+        ]
     }),
 
     computed: {
         ...mapGetters("user", ["user"]),
+
+
 
     },
 

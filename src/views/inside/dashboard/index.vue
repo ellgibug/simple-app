@@ -2,11 +2,11 @@
     <div>
         <h1>Dashboard</h1>
 
-        <div>Валидность емейла</div>
+        <div>Валидность емейла (сделано)</div>
         <email-verification v-if="!user.is_email_verified"/>
 
         <hr>
-        <div>Подтвержение в организации</div>
+        <div>Подтвержение в организации (не сделано)</div>
 
 
 

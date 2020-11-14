@@ -24,4 +24,40 @@ export const inside = [
             return import('../views/inside/dashboard/index')
         }
     },
+    {
+        path: '/profile',
+        name: 'Profile',
+        beforeEnter: ifAuthenticated,
+        meta: {
+            layout: 'inside/index',
+            title: 'Profile'
+        },
+        component: function () {
+            return import('../views/inside/profile/index')
+        }
+    },
+    {
+        path: '/projects',
+        name: 'Projects',
+        beforeEnter: ifAuthenticated,
+        meta: {
+            layout: 'inside/index',
+            title: 'Projects'
+        },
+        component: function () {
+            return import('../views/inside/projects/index')
+        }
+    },
+    {
+        path: '/organization/users',
+        name: 'UsersInOrganization',
+        beforeEnter: ifAuthenticated,
+        meta: {
+            layout: 'inside/index',
+            title: 'Users In Organization'
+        },
+        component: function () {
+            return import('../views/inside/usersInOrganization/index')
+        }
+    },
 ]
