@@ -17,10 +17,8 @@
             </div>
         </div>
         <div class="navbar__section">
-            <button @click="sendLogoutRequest">Logout</button>
+            <button @click="sendLogoutRequest">Logout {{ user.name }}</button>
         </div>
-
-
     </div>
 </template>
 

@@ -15,7 +15,7 @@ export default {
                 route: 'Projects'
             },
             {
-                title: 'Организация',
+                title: 'Пользователи в организации',
                 route: 'UsersInOrganization'
             }
         ]
