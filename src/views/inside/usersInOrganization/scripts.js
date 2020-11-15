@@ -39,7 +39,11 @@ export default {
     },
 
     beforeMount() {
-        this.getUsers()
+
+        setTimeout(() => {
+            this.getUsers()
+        }, 1000)
+
 
     }
 }
