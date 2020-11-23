@@ -11,7 +11,10 @@ export default {
             projects: [],
             dialogs: {
                 create: {
-                    visible: true
+                    visible: false,
+                    model: {
+                        title: 'Это название нового проекта'
+                    }
                 }
             }
         }
@@ -28,7 +31,22 @@ export default {
 
     methods: {
         test1(){
-            console.log(111)
+            const that = this;
+            request.post('projects/create', {
+                title: this.dialogs.create.model.title,
+                user_id: this.user.id,
+                organization_id: this.user.organization.id,
+            })
+                .then((response) => {
+                    this.projects.push(response.data.project)
+                    this.dialogs.create.visible = false;
+                    console.log(response)
+                    // that.setUser(response.data.user)
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
         },
         getProjects() {
 

@@ -17,7 +17,13 @@
                         @close="dialogs.create.visible = false"
                         @action="test1"
                 >
-                    jewnvwejbvuiwe
+
+                    <div>
+                        Название<br/>
+                        <input type="text" v-model="dialogs.create.model.title">
+                    </div>
+
+
                 </h-dialog>
                 <div class="projects">
                     <div v-for="project in projects" :key="project.id" :class="['projects__item', 'project']">
@@ -35,7 +41,7 @@
                                 <button class="button">Открыть</button>
                             </div>
                             <div class="project__edit">
-                                <button class="button">Редактировать</button>
+                                <button class="button">Настройки</button>
                             </div>
                         </div>
                     </div>

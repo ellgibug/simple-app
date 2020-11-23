@@ -1,6 +1,6 @@
 <template>
     <div class="dialog-wrapper" v-if="isOpen">
-        <div class="dialog" ref="dialog">
+        <div :class="['dialog', isOpen && 'dialog_opened']" ref="dialog">
             <div class="dialog__title">
                 {{title}}
             </div>
