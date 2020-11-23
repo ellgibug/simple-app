@@ -1,25 +1,175 @@
-.navbar{
+@import "../../styles/ui/colors";
+
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  &__section{
+  &__section {
 
   }
 }
 
-.navbar-section{
+.navbar-section {
   display: flex;
   align-items: center;
-  &__item:not(:last-child){
+
+  &__item:not(:last-child) {
     margin-right: 30px;
   }
 }
 
-.pages{
+
+.d-menu-btn {
   display: flex;
   align-items: center;
-  &__item:not(:last-child){
-    margin-right: 15px;
+  position: relative;
+}
+
+
+.dropdown {
+  box-shadow: none;
+  border: none;
+  z-index: 0;
+  position: absolute;
+  background: transparent;
+  max-width: 960px;
+  width: 960px;
+  height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &_opened {
+    z-index: 1;
+    height: 320px;
+    padding: 20px;
+    transition: height linear 0.2s;
+    border-radius: 8px;
+    background: $white;
+    box-shadow: 0 5px 10px 2px $grey_2;
+  }
+
+  &_bottom {
+    top: calc(100% + 16px);
+    left: 100%;
+    transform: translateX(-100%);
   }
 }
+
+
+// меню
+.menu {
+  padding: 0 10px;
+
+  &__top {
+    margin-bottom: 40px;
+  }
+
+  &__center {
+    margin-bottom: 40px;
+
+  }
+
+  &__footer {
+    margin-top: 40px;
+  }
+}
+
+.user-greetings{
+  border-bottom: 3px solid $primary;
+}
+.hide-menu{
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.menu-top, .menu-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.user-logout {
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  background: $grey_2;
+  padding: 0 15px;
+  border: 1px solid $grey_2;
+
+  &:hover{
+    cursor: pointer;
+    background: $grey_1;
+  }
+
+  &__text {
+    font-size: 14px;
+  }
+}
+
+.menu-center {
+  margin: -15px;
+
+  &__item {
+    padding: 15px;
+    flex: 1 1 100%;
+  }
+}
+
+
+.menu-link-box {
+  box-shadow: 0 5px 10px 2px $grey_2;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  height: 150px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transition: all ease-in-out 0.5s;
+
+  &_active{
+    @extend .menu-link-box;
+    box-shadow: none;
+    border: 3px solid $primary;
+    &__text {
+
+    }
+  }
+
+  &_active &__text{
+    color: $primary;
+  }
+
+
+
+  &:hover:not(&_active) {
+    cursor: pointer;
+    box-shadow: none;
+    transition: all ease-in-out 0.5s;
+  }
+
+  &:hover:not(&_active) &__text {
+    color: $primary;
+
+  }
+}
+
+
+.logo {
+  color: $primary;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+

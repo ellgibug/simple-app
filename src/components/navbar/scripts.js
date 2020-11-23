@@ -7,30 +7,74 @@ export default {
     data: () => ({
         links:[
             {
-                title: 'Личный кабинет',
-                route: 'Profile'
+                title: 'Профиль',
+                route: 'Profile',
+                icon: 'setting',
+                isHovered: false
             },
             {
                 title: 'Проекты',
-                route: 'Projects'
+                route: 'Projects',
+                icon: 'book-open',
+                isHovered: false
             },
             {
-                title: 'Пользователи в организации',
-                route: 'UsersInOrganization'
-            }
-        ]
+                title: 'Организация',
+                route: 'UsersInOrganization',
+                icon: 'house-user',
+                isHovered: false
+            },
+        ],
+
+        isOpen: false
     }),
 
     computed: {
         ...mapGetters("user", ["user"]),
-
-
 
     },
 
     methods: {
         ...mapActions("user", ["setIsAuthed", "setToken", "setUser"]),
 
+        handleOutsideClick (e) {
+            if (this.$refs.menu.contains(e.target)) {
+                return
+            }
+
+            this.isOpen = false
+        },
+
+        setHovered(route){
+            if(route) {
+
+                if(route === this.$route.name){
+                    return
+                }
+
+                this.links.map(l => {
+                    if(l.route === route){
+                        return l.isHovered = true
+                    }
+                })
+            } else {
+                this.links.map(l => {
+
+                    return l.isHovered = false
+
+                })
+            }
+        },
+
+        goTo(name){
+            this.isOpen = false;
+            if(name === this.$route.name){
+                return
+            }
+            this.$router.push({
+                name
+            })
+        },
 
         sendLogoutRequest() {
 
@@ -49,5 +93,18 @@ export default {
                     console.log(error);
                 });
         },
+
+    },
+
+    mounted() {
+        if (this.isOpen) {
+            document.addEventListener('mousedown', this.handleOutsideClick)
+        } else {
+            document.removeEventListener('mousedown', this.handleOutsideClick)
+        }
+    },
+
+    destroyed(){
+        document.removeEventListener('mousedown', this.handleOutsideClick)
     }
 }

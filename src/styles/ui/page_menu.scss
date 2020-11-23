@@ -1,0 +1,38 @@
+@import "colors";
+
+.m {
+  position: sticky;
+  top: 71px;
+
+  &__item {
+
+  }
+
+}
+
+.m-item {
+  padding: 2px 8px;
+  border-radius: 4px;
+  border-bottom: 2px solid transparent;
+
+
+  &__text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #9db1cc;
+  }
+
+  &_active {
+    background: rgba(48, 207, 209, 0.15);
+  }
+
+  &_active &__text {
+    font-weight: 700;
+    color: $primary;
+  }
+
+  &:hover:not(&_active) {
+    cursor: pointer;
+    background: rgba(48, 207, 209, 0.1);
+  }
+}
