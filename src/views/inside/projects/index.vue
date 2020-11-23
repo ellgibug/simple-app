@@ -6,10 +6,19 @@
             </div>
             <div class="p-content__inner">
                 <div class="projects-menu">
-                    <div class="projects-menu__item">
+                    <div class="projects-menu__item" @click="dialogs.create.visible = true">
                         Создать новый проект
                     </div>
                 </div>
+                <h-dialog
+                        title="Создать новый проект"
+                        button="Сохранить"
+                        :isOpen = "dialogs.create.visible"
+                        @close="dialogs.create.visible = false"
+                        @action="test1"
+                >
+                    jewnvwejbvuiwe
+                </h-dialog>
                 <div class="projects">
                     <div v-for="project in projects" :key="project.id" :class="['projects__item', 'project']">
                         <div class="project__left">

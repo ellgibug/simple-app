@@ -17,3 +17,24 @@
   }
 
 }
+
+.p-button{
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+
+  text-transform: uppercase;
+
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  background: $primary;
+  padding: 10px 35px;
+  border: 2px solid $primary;
+  color: $white;
+
+  &:hover{
+    cursor: pointer;
+    background: transparent;
+    color: $primary;
+  }
+}

@@ -1,5 +1,6 @@
 import {mapGetters} from "vuex";
 import request from "../../../helpers/request";
+import HDialog from "../../../components/dialog/index"
 
 export default {
 
@@ -7,13 +8,18 @@ export default {
 
     data(){
         return {
-            projects: []
+            projects: [],
+            dialogs: {
+                create: {
+                    visible: true
+                }
+            }
         }
     },
 
 
     components: {
-
+        'h-dialog': HDialog
     },
     computed: {
         ...mapGetters("user", ["user"]),
@@ -21,6 +27,9 @@ export default {
     },
 
     methods: {
+        test1(){
+            console.log(111)
+        },
         getProjects() {
 
             const that = this;

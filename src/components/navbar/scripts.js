@@ -38,7 +38,6 @@ export default {
         ...mapActions("user", ["setIsAuthed", "setToken", "setUser"]),
 
         handleOutsideClick (e) {
-            console.log(e)
             if (this.$refs.menu.contains(e.target)) {
                 return
             }
