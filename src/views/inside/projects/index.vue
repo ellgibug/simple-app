@@ -38,11 +38,11 @@
                         <div class="project__right">
                             <div class="project__date">{{ project.created_at | moment("DD.MM.YYYY HH:m:s") }}</div>
                             <div class="project__open">
-                                <button class="button">Открыть</button>
+                                <button class="button" @click="goToProject(project.code)">Открыть</button>
                             </div>
-                            <div class="project__edit">
-                                <button class="button">Настройки</button>
-                            </div>
+<!--                            <div class="project__edit">-->
+<!--                                <button class="button">Настройки</button>-->
+<!--                            </div>-->
                         </div>
                     </div>
                 </div>

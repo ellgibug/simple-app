@@ -11,7 +11,7 @@
             <div class="navbar-section__item">
                 <div class="d-menu-btn">
                     <div class="d-menu-btn__icon"
-                         @click="isOpen =! isOpen">
+                         @mouseenter="isOpen = true">
                         <unicon name="user-circle"
                                 fill="#9db1cc"
                                 height="28"

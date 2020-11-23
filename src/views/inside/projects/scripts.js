@@ -62,6 +62,15 @@ export default {
                     console.log(error);
                 });
         },
+
+        goToProject(code){
+            this.$router.push({
+                name: "Project",
+                params: {
+                    code
+                }
+            })
+        }
     },
 
     beforeMount() {
