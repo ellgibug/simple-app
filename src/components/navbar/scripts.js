@@ -38,6 +38,7 @@ export default {
         ...mapActions("user", ["setIsAuthed", "setToken", "setUser"]),
 
         handleOutsideClick (e) {
+            console.log(e)
             if (this.$refs.menu.contains(e.target)) {
                 return
             }
@@ -97,11 +98,7 @@ export default {
     },
 
     mounted() {
-        if (this.isOpen) {
             document.addEventListener('mousedown', this.handleOutsideClick)
-        } else {
-            document.removeEventListener('mousedown', this.handleOutsideClick)
-        }
     },
 
     destroyed(){

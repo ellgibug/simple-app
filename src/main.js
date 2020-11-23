@@ -20,6 +20,9 @@ import {
 
 import "./styles/index.scss"
 
+
+
+
 require('dotenv').config();
 
 axios.defaults.baseURL = process.env.VUE_APP_API_URL;
@@ -40,6 +43,7 @@ Unicon.add([
     uniUserCircle,
 ])
 Vue.use(Unicon)
+Vue.use(require('vue-moment'));
 
 new Vue({
     router,

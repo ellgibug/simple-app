@@ -20,7 +20,7 @@
             <div class="p-content__title">
                 <h1>Profile</h1>
             </div>
-            <div class="p-content__inner">
+            <div class="p-content__inner p-content__inner_white">
 <!--                <pre>{{ user }}</pre>-->
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda debitis delectus
                     exercitationem ipsa labore maxime nam optio quaerat, quo, repellendus tenetur unde? A, at facilis

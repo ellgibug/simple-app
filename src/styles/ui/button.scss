@@ -1,0 +1,19 @@
+@import "colors";
+
+.button{
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  background: $grey_1;
+  padding: 4px 15px;
+  border: 1px solid $grey_2;
+
+  &:hover{
+    cursor: pointer;
+    background: $grey_2;
+  }
+
+}
