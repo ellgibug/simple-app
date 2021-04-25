@@ -5,7 +5,7 @@
   top: 71px;
 
   &__item {
-
+    //margin-bottom: 16px;
   }
 
 }
@@ -17,8 +17,8 @@
 
 
   &__text {
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: 300;
     color: #9db1cc;
   }
 
@@ -27,7 +27,6 @@
   }
 
   &_active &__text {
-    font-weight: 700;
     color: $primary;
   }
 

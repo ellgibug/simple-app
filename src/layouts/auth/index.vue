@@ -1,17 +1,22 @@
 <template>
     <div>
-        <div class="heading-1">Auth layout</div>
+        <div class="a-page">
+            <div class="a-page__card">
 
-        <div class="links">
-            <div v-for="link in links" class="links__item">
-                <router-link :to="{name: link.route}" :key="link.route">
-                    {{ link.title }}
-                </router-link>
+
+<!--                <div class="links">-->
+<!--                    <div v-for="link in links" class="links__item">-->
+<!--                        <router-link :to="{name: link.route}" :key="link.route">-->
+<!--                            {{ link.title }}-->
+<!--                        </router-link>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                <transition name="fade" mode="out-in">
+                    <router-view/>
+                </transition>
             </div>
         </div>
-
-        <hr>
-        <router-view/>
     </div>
 </template>
 

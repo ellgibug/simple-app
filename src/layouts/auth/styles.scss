@@ -1,7 +1,12 @@
-.links{
-  display: flex;
-  &__item{
-    padding: 5px 10px;
-  }
+@import "../../styles/ui/colors";
 
+.fade-enter, .fade-leave{
+  opacity: 0;
+  transform: translateX(2em);
 }
+
+.fade-enter-active, .fade-leave-active{
+  transition: all 0.3s ease;
+}
+
+
