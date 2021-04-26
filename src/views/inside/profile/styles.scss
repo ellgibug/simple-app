@@ -1,4 +1,10 @@
 @import "../../../styles/ui/colors";
 
-
-
+.profile{
+  &__breadcrumbs{
+    margin-bottom: 20px;
+  }
+  &__block:not(:last-child){
+    margin-bottom: 40px;
+  }
+}
