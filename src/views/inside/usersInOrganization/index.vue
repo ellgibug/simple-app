@@ -1,23 +1,15 @@
 <template>
     <div>
-        <h1>Users in organization</h1>
 
+        <div class="title">
+            Пользователи в организации
+        </div>
 
+        <div class="search">
+            <input type="text">
+        </div>
 
-
-            <div style="margin-top: 50px" v-if="users.length">
-                <div v-for="user in users" :key="user.id" style="margin-bottom: 20px">
-                        {{ user }}
-                </div>
-            </div>
-            <PuSkeleton v-else/>
-
-
-
-
-
-
-
+        <MyTable :body="users" :header="headers"/>
 
     </div>
 </template>
