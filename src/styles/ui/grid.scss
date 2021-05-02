@@ -10,9 +10,10 @@ body {
 
   &__navbar {
     background: white;
+    //background: rgb(249, 250, 252);
     position: fixed;
     width: 100%;
-    box-shadow: 0 2px 5px 1px $grey_2;
+    box-shadow: 0 1px 3px 2px $grey_2;
     z-index: 1;
   }
 

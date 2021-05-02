@@ -15,7 +15,8 @@ import {
     uniSetting,
     uniBookOpen,
     uniUserCircle,
-    uniCheck
+    uniCheck,
+    uniEdit
 } from 'vue-unicons/src/icons'
 
 
@@ -42,7 +43,8 @@ Unicon.add([
     uniSetting,
     uniBookOpen,
     uniUserCircle,
-    uniCheck
+    uniCheck,
+    uniEdit
 ])
 Vue.use(Unicon)
 Vue.use(require('vue-moment'));

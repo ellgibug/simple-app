@@ -4,12 +4,15 @@
         <div class="profile__breadcrumbs">
             <Breadcrumbs :breadcrumbs="breadcrumbs"/>
         </div>
-        <div class="profile__block">
+        <div class="profile__block" style="padding: 20px; background: #f8fafc; border-radius: 8px">
             <PersonalData :user="user"/>
         </div>
         <div class="profile__block" v-if="!user.is_email_verified">
             <EmailVerification/>
         </div>
+        <div class="profile__block">
+            <OrganizationCard :organization="user.organization"/>
+        </div>
 
 
 
@@ -17,35 +20,35 @@
 
 
 
-        <hr>
+<!--        <hr>-->
 
-        <div>Персональные данные</div>
-        <div>{{ user.code}}</div>
-        <div>{{ user.name}}</div>
-        <div>{{ user.email}}</div>
+<!--        <div>Персональные данные</div>-->
+<!--        <div>{{ user.code}}</div>-->
+<!--        <div>{{ user.name}}</div>-->
+<!--        <div>{{ user.email}}</div>-->
 
-        <hr>
+<!--        <hr>-->
 
-        <div>Подтверждение емейла</div>
-        <div>{{ user.is_email_verified}}</div>
+<!--        <div>Подтверждение емейла</div>-->
+<!--        <div>{{ user.is_email_verified}}</div>-->
 
-        <hr>
+<!--        <hr>-->
 
-        <div>Роль</div>
+<!--        <div>Роль</div>-->
 <!--        <div>{{ user.role.title}}</div>-->
 
 
-        <hr>
+<!--        <hr>-->
 
-        <div>Организация</div>
+<!--        <div>Организация</div>-->
 <!--        <div>{{ user.organization.code}}</div>-->
 <!--        <div>{{ user.organization.title}}</div>-->
 
 
-        <hr>
-        Выйти
+<!--        <hr>-->
+<!--        Выйти-->
 
-        {{ user }}
+<!--        {{ user }}-->
     </div>
 </template>
 

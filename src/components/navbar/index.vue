@@ -13,6 +13,7 @@
                     <div class="d-menu-btn__icon"
                          @mouseenter="isOpen = true">
                         <unicon name="user-circle"
+                                style="display: flex"
                                 fill="#9db1cc"
                                 height="28"
                                 width="28"
