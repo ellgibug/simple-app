@@ -1,0 +1,81 @@
+@import "../../styles/ui/colors";
+
+.info {
+  position: relative;
+  padding: 20px 20px 50px 20px;
+  background: #f8fafc;
+  border-radius: 8px;
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 800;
+  }
+
+  &__body {
+
+  }
+
+  &__edit {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: -16px;
+
+  &__col {
+    padding: 16px;
+    flex: 1 1 100%;
+  }
+}
+
+.attrs {
+  font-size: 16px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.attrs dt {
+  width: 50%;
+  padding: 0;
+  display: flex;
+  box-sizing: border-box;
+  align-items: flex-end;
+  position: relative;
+  word-break: break-word;
+  color: #808d9a;
+}
+
+.attrs dt:before {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: .2em;
+  border-bottom: 1px dotted #d6dbe0;
+}
+
+.attrs dt span {
+  padding-right: 5px;
+  background: #f8fafc;
+  position: relative;
+}
+
+.attrs dd {
+  width: 50%;
+  display: flex;
+  box-sizing: border-box;
+  align-items: flex-end;
+  padding: 0 0 0 5px;
+  word-break: break-word;
+  text-align: right;
+}

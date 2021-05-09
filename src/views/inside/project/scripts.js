@@ -1,6 +1,9 @@
 import {mapGetters} from "vuex";
 import request from "../../../helpers/request";
 import HDialog from "../../../components/dialog/index"
+import ProjectInfo from "../../../components/projectInfo/index"
+import Breadcrumbs from "../../../ui/breadcrumbs"
+
 
 export default {
 
@@ -9,17 +12,33 @@ export default {
     data(){
         return {
             project: {},
-            pages:[]
+            pages:[],
+
+            content: 'hello world'
 
         }
     },
 
 
     components: {
-        'h-dialog': HDialog
+        'h-dialog': HDialog,
+        Breadcrumbs,
+        ProjectInfo
     },
     computed: {
         ...mapGetters("user", ["user"]),
+
+        breadcrumbs() {
+            return [
+                {
+                    text: 'Проекты',
+                    link: '/projects',
+                },
+                {
+                    text: this.project.title,
+                },
+            ]
+        }
 
     },
 
