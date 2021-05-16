@@ -18,6 +18,7 @@ import {
     uniCheck,
     uniEdit,
     uniBars,
+    uniBold,
 } from 'vue-unicons/src/icons'
 
 
@@ -47,6 +48,7 @@ Unicon.add([
     uniCheck,
     uniEdit,
     uniBars,
+    uniBold,
 ])
 Vue.use(Unicon)
 Vue.use(require('vue-moment'));

@@ -13,8 +13,9 @@
             Страницы
             <div v-for="page in pages" :key="page.id">
                 {{ page.title }} |
-                Просмотр |
-                Редактировать
+                <router-link :to="{name: 'Page', params: {code: page.code}}">Редактировать</router-link>
+                 |
+                Просмотр
             </div>
         </div>
 <!--        {{ pages }}-->

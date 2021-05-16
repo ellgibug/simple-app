@@ -61,6 +61,18 @@ export const inside = [
         }
     },
     {
+        path: '/pages/:code',
+        name: 'Page',
+        beforeEnter: ifAuthenticated,
+        meta: {
+            layout: 'inside/index',
+            title: 'Page'
+        },
+        component: function () {
+            return import('../views/inside/page/index')
+        }
+    },
+    {
         path: '/organization/users',
         name: 'UsersInOrganization',
         beforeEnter: ifAuthenticated,
