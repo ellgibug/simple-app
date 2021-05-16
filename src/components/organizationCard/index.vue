@@ -1,25 +1,24 @@
 <template>
-    <div class="organization">
-        <div class="organization__title">Ваша организация</div>
-        <div class="organization__body">
-            <div class="body">
-                <div class="body__text">
-                    <div class="text">
-                        <div class="text__title">
-                            {{organization.title}}
-                        </div>
-                        <div class="text__code">
-                            {{organization.code}}
-                        </div>
-                    </div>
-                </div>
-                <div class="body__button2">
-                    <button>Перейти</button>
-                </div>
+    <div class="block">
+        <div class="block__title">Ваша организация</div>
+        <div class="block__body b-body">
+            <div class="b-body__title">
+                "{{organization.title}}"
             </div>
-        </div>
-        <div class="organization__confirmation">
-            Приглашение обрабатывается
+            <div class="b-body__addition">
+                Приглашение обрабатывается
+            </div>
+            <div class="b-body__button">
+                <button>
+                    Перейти
+                    <unicon name="angle-right"
+                            style="display: flex; margin-left: 10px"
+                            fill="#fff"
+                            height="22"
+                            width="22"
+                    />
+                </button>
+            </div>
         </div>
     </div>
 </template>

@@ -1,4 +1,8 @@
 <template>
+
+<!--    <a href='https://www.freepik.com/vectors/text'>Text vector created by macrovector - www.freepik.com</a>-->
+<!--    <a href='https://www.freepik.com/vectors/business'>Business vector created by pch.vector - www.freepik.com</a>-->
+
     <div class="navbar">
         <div class="navbar__section navbar-section">
             <div class="navbar-section__item">
@@ -12,11 +16,11 @@
                 <div class="d-menu-btn">
                     <div class="d-menu-btn__icon"
                          @mouseenter="isOpen = true">
-                        <unicon name="user-circle"
+                        <unicon name="user"
                                 style="display: flex"
-                                fill="#9db1cc"
-                                height="28"
-                                width="28"
+                                fill="#F8FAFC"
+                                height="22"
+                                width="22"
                         />
                     </div>
                     <div :class="['d-menu-btn__dropdown', 'dropdown', 'dropdown_bottom', isOpen && 'dropdown_opened']" ref="menu">
