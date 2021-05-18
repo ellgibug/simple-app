@@ -38,30 +38,32 @@
 
 .dropdown {
   box-shadow: none;
-  border: none;
+  //border: none;
   z-index: 0;
   position: absolute;
   background: transparent;
-  max-width: 960px;
-  width: 960px;
+  max-width: 1130px;
+  width: 1130px;
   height: 0;
   box-sizing: border-box;
   overflow: hidden;
 
   &_opened {
     z-index: 1;
-    height: 330px;
+    height: 530px;
     padding: 20px;
     transition: height linear 0.2s;
-    border-radius: 8px;
+    border-radius: 16px;
     background: $white;
-    box-shadow: 0 5px 10px 2px $grey_2;
+    box-shadow: 0px 0px 60px 0px rgba(30, 46, 66, 0.3);
+    border: 1px solid rgba(30, 46, 66, 0.1);
+
   }
 
   &_bottom {
     top: calc(100% + 16px);
-    left: 100%;
-    transform: translateX(-100%);
+    left: calc(100% + 50px);
+    transform: translateX(calc(-100% + 50px));
   }
 }
 

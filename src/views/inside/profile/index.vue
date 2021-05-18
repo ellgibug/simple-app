@@ -1,16 +1,16 @@
 <template>
-    <div class="profile">
+    <div class="profile ">
 
-        <div class="profile__breadcrumbs">
+        <div class="profile__breadcrumbs container">
             <Breadcrumbs :breadcrumbs="breadcrumbs"/>
         </div>
-        <div class="profile__block" style="padding: 20px; background: #f8fafc; border-radius: 8px">
+        <div class="profile__block" style="padding:0; background: #f8fafc;">
             <PersonalData :user="user"/>
         </div>
-        <div class="profile__block" v-if="!user.is_email_verified">
+        <div class="profile__block container" v-if="!user.is_email_verified">
             <EmailVerification/>
         </div>
-        <div class="profile__block">
+        <div class="profile__block" style="padding: 50px 0 70px 0;">
             <OrganizationCard :organization="user.organization"/>
         </div>
 
