@@ -1,9 +1,13 @@
 @import "../ui/colors";
 
+body{
+}
+
 .inside-layout {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
 
   &__navbar {
     background: #1e2e42;
@@ -22,6 +26,16 @@
   max-width: 960px;
   padding: 0 15px !important;
   margin: 0 auto;
+  display: block;
+}
+
+.flex-container{
+  max-width: 960px;
+  padding: 0 15px !important;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
 

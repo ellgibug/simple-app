@@ -4,24 +4,39 @@ import {mapActions, mapGetters} from "vuex"
 export default {
     name: "login",
 
+    watch: {
+        isOpen(){
+            if(this.isOpen){
+                document.body.style.overflow = 'hidden'
+                document.body.style.height = '100%'
+                // document.body.style.pointerEvents = 'none'
+            } else {
+                document.body.style.overflow = 'auto'
+                document.body.style.height = 'auto'
+                // document.body.style.pointerEvents = 'auto'
+
+            }
+        }
+    },
+
     data: () => ({
         links:[
             {
                 title: 'Профиль',
                 route: 'Profile',
-                icon: 'setting',
+                icon: require('../../assets/home.svg'),
                 isHovered: false
             },
             {
                 title: 'Проекты',
                 route: 'Projects',
-                icon: 'book-open',
+                icon: require('../../assets/book.svg'),
                 isHovered: false
             },
             {
                 title: 'Организация',
                 route: 'UsersInOrganization',
-                icon: 'house-user',
+                icon: require('../../assets/users.svg'),
                 isHovered: false
             },
         ],

@@ -17,6 +17,11 @@
 
 
                     <a href="https://iconscout.com/icon-pack/essential-icons" target="_blank">Essential Icons Icon Pack</a> by <a href="https://iconscout.com/contributors/bryn-taylor" target="_blank">Bryn Taylor</a>
+
+
+                    https://iconscout.com/icon-pack/essential-icons
+
+
                 </div>
             </footer>
         </div>
