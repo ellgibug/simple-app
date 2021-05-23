@@ -10,15 +10,13 @@
                     Приглашение обрабатывается
                 </div>
                 <div class="b-body__button">
-                    <button>
+
+                    <HButton
+                            iconRight="angle-right"
+                            theme="primary">
                         Перейти
-                        <unicon name="angle-right"
-                                style="display: flex; margin-left: 10px"
-                                fill="#fff"
-                                height="22"
-                                width="22"
-                        />
-                    </button>
+                    </HButton>
+
                 </div>
             </div>
         </div>

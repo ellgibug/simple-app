@@ -43,20 +43,10 @@
                 </div>
 
                 <div class="personal__edit">
-                    <button>
+
+                    <HButton iconRight="angle-right" theme="secondary">
                         Редактировать
-                        <unicon name="angle-right"
-                                style="display: flex; margin-left: 10px"
-                                fill="#9DB1CC"
-                                height="22"
-                                width="22"
-                        />
-                    </button>
-                    <!--                <unicon name="edit"-->
-                    <!--                        style="display: flex"-->
-                    <!--                        fill="#9db1cc"-->
-                    <!--                        height="30" width="30"-->
-                    <!--                />-->
+                    </HButton>
                 </div>
             </div>
 
