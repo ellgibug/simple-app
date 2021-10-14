@@ -28,6 +28,12 @@ export default {
 
             return 'transparent'
         }
+    },
+
+    methods: {
+        handleClick() {
+            this.$emit('handleClick')
+        }
     }
 
 

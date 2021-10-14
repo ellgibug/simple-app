@@ -32,7 +32,13 @@
                 <div class="menu__top">
                     <div class="flex-container" style="align-items: center">
                         <div class="user-greetings">
-                            Добро пожаловать, {{ user.name}}!
+                            <span>Добро пожаловать, {{ user.name}}!</span>
+                            <HButton
+                                    iconRight="sign-out-alt"
+                                    theme="secondary"
+                                    @handleClick="sendLogoutRequest">
+                                Выйти
+                            </HButton>
                         </div>
                         <div class="hide-menu"  @click="isOpen = false">
                             <unicon name="times"

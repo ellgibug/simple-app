@@ -1,5 +1,5 @@
 <template>
-    <button :class="['hButton', buttonThemeClass]">
+    <button :class="['hButton', buttonThemeClass]" @click="handleClick">
         <template v-if="iconLeft">
             <unicon :name="iconLeft"
                     style="display: flex; margin-right: 10px"

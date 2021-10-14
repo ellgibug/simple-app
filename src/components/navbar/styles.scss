@@ -82,7 +82,7 @@
   height: 100%;
 
   &__top {
-    padding: 10px 0;
+    padding: 20px 0;
     background: $grey_1;
 
 
@@ -90,7 +90,7 @@
   }
 
   &__body{
-    height: calc(100% - 50px);
+    height: calc(100% - 70px);
     box-sizing: border-box;
     background: $grey_1;
 
@@ -108,6 +108,9 @@
 
 .user-greetings{
   //border-bottom: 3px solid $primary;
+  span{
+    margin-right: 20px;
+  }
 }
 .hide-menu{
   //display: flex;

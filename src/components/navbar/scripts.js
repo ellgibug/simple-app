@@ -1,8 +1,13 @@
 import request from "../../helpers/request";
 import {mapActions, mapGetters} from "vuex"
+import HButton from "../../ui/button"
 
 export default {
     name: "login",
+
+    components: {
+        HButton
+    },
 
     watch: {
         isOpen(){
@@ -98,10 +103,11 @@ export default {
             request.post('logout')
                 .then(function (response) {
                     if (response.status === 200) {
+                        window.location.reload()
                         that.setToken('')
                         that.setIsAuthed(false)
                         that.setUser({})
-                        window.location.reload()
+
                     }
                 })
                 .catch(function (error) {
