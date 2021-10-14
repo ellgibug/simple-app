@@ -66,7 +66,7 @@ export default {
         updatePageBody() {
             // let body = rte.document.body.innerHTML
             // let body = document.getElementById('textarea').innerHTML;
-            let body = document.getElementById('myTa').value
+            let body = this.page.body
             //
             //
             request.patch(`page/${this.page.code}/edit/body`, {
