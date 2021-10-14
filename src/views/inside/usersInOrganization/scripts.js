@@ -59,13 +59,25 @@ export default {
                     console.log(error);
                 });
         },
+
+        confirm(user) {
+            request.get(`user/${user.code}/confirm`)
+                .then(function (response) {
+
+                    that.users = response.data.users
+                    console.log(response)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
     },
 
     beforeMount() {
 
         setTimeout(() => {
             this.getUsers()
-        }, 1000)
+        }, 0)
 
 
     }

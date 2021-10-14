@@ -6,7 +6,7 @@
         <email-verification v-if="!user.is_email_verified"/>
 
         <hr>
-        <div>Подтвержение в организации (не сделано)</div>
+        <div>Подтвержение в организации (сделано на списке юзеров)</div>
 
 
 
