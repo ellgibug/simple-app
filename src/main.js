@@ -19,7 +19,9 @@ import {
     uniEdit,
     uniBars,
     uniBold,
-    uniAngleRight
+    uniAngleRight,
+    uniUsersAlt,
+    uniBook,
 
 } from 'vue-unicons/src/icons'
 
@@ -52,7 +54,9 @@ Unicon.add([
     uniEdit,
     uniBars,
     uniBold,
-    uniAngleRight
+    uniAngleRight,
+    uniUsersAlt,
+    uniBook,
 ])
 Vue.use(Unicon)
 Vue.use(require('vue-moment'));

@@ -1,18 +1,21 @@
-import request from "../../helpers/request";
+import request from "../../../../helpers/request";
 import {mapActions, mapGetters} from "vuex"
-import h_header from "../../components/new/header/H_Header"
+import Container from "../../../ui/container/index"
+import Col from "../../../ui/col/index"
+import HeaderLink from "../links"
 
 export default {
-    name: "InsideLayout",
-
+    name: "H_Header",
 
     components: {
-        h_header
+        Container,
+        Col,
+        HeaderLink
     },
 
-    data: () => ({
+    watch: {
 
-    }),
+    },
 
     computed: {
         ...mapGetters("user", ["user"]),
@@ -22,6 +25,14 @@ export default {
     methods: {
         ...mapActions("user", ["setIsAuthed", "setToken", "setUser"]),
 
+        goTo(name){
+            if(name === this.$route.name){
+                return
+            }
+            this.$router.push({
+                name
+            })
+        },
 
         sendLogoutRequest() {
 
@@ -30,15 +41,21 @@ export default {
             request.post('logout')
                 .then(function (response) {
                     if (response.status === 200) {
+                        window.location.reload()
                         that.setToken('')
                         that.setIsAuthed(false)
                         that.setUser({})
-                        window.location.reload()
+
                     }
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
         },
-    }
+
+        openMenu() {
+
+        }
+
+    },
 }
