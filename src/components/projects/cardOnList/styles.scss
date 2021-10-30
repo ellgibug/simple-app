@@ -1,0 +1,93 @@
+@import "../../../styles/ui/colors";
+
+.project {
+  background: white;
+  box-shadow: 0px 1px 2px 0px rgba(34, 60, 80, 0.2);
+  width: 100%;
+  padding: 15px 20px 15px 50px;
+  position: relative;
+  transition: all ease-in-out 0.4s;
+
+  &.active{
+    @extend .project;
+    background: transparent;
+    box-shadow: none;
+
+  }
+
+
+  &__row:not(:last-child){
+    margin-bottom: 20px;
+  }
+
+  &:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all ease-in-out 0.4s;
+  }
+}
+
+.project-type{
+
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+
+  &.published{
+    background: #178e17;
+  }
+
+
+  &.unpublished{
+    background: #91a5af;
+  }
+}
+
+.row{
+  display: flex;
+
+  &.column{
+    flex-direction: column;
+  }
+
+  &.justify-content-space-between{
+    justify-content: space-between;
+  }
+
+  &.justify-content-end{
+    justify-content: flex-end;
+  }
+
+  &__item:not(:last-child){
+    margin-bottom: 8px;
+  }
+}
+
+.project{
+  &-dates{
+    font-size: 12px;
+    color: #91a5af;
+  }
+
+  &-code{
+    font-size: 12px;
+    color: #91a5af;
+  }
+
+  &-title{
+
+  }
+
+  &-url{
+    font-size: 12px;
+  }
+
+  &-creator{
+    font-size: 12px;
+    color: #91a5af;
+  }
+}

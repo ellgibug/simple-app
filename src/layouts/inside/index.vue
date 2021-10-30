@@ -31,11 +31,17 @@
         <div class="wrapper__header">
             <h_header/>
         </div>
-        <div class="wrapper__main">
-            <router-view/>
-        </div>
+        <main class="wrapper__main">
+            <Container>
+                <Col className="flex-grow-1">
+                    <router-view/>
+                </Col>
+            </Container>
+        </main>
         <div class="wrapper__footer">
+            <Container>
             Footer уриурпиоукп
+            </Container>
         </div>
     </div>
 

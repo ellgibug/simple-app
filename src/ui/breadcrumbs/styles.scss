@@ -3,8 +3,8 @@
   display: flex;
   margin: -2px -5px;
   &__item{
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 24px;
     padding: 2px 5px;
     display: flex;
     font-weight: 400;
@@ -31,5 +31,8 @@
     content: "\22C5";
     margin-left: 5px;
     margin-right: -5px;
+  }
+  &__item:last-child{
+    font-weight: 600;
   }
 }

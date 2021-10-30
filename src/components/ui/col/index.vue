@@ -18,7 +18,24 @@
 
 <style lang="scss" scoped>
     .col{
-        height: 100%;
-        /*border: 2px solid red;*/
+        display: flex;
+
+
+        &.flex-grow-1{
+            flex: 1 0 100%;
+        }
+
+        &.flex-grow-05{
+            flex: 0 1 50%;
+        }
+
+        &.flex-grow-04{
+            flex: 0 1 40%;
+        }
+
+        &.column{
+            flex-direction: column;
+        }
     }
+
 </style>

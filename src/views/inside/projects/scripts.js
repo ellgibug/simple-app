@@ -1,6 +1,12 @@
 import {mapGetters} from "vuex";
 import request from "../../../helpers/request";
 import HDialog from "../../../components/dialog/index"
+import Page from "../../../components/ui/page"
+import Container from "../../../components/ui/container"
+import Col from "../../../components/ui/col"
+import Breadcrumbs from "../../../ui/breadcrumbs"
+import CardOnList from "../../../components/projects/cardOnList"
+
 
 export default {
 
@@ -16,13 +22,23 @@ export default {
                         title: 'Это название нового проекта'
                     }
                 }
-            }
+            },
+            breadcrumbs: [
+                {
+                    text: 'Проекты',
+                },
+            ]
         }
     },
 
 
     components: {
-        'h-dialog': HDialog
+        'h-dialog': HDialog,
+        Page,
+        Breadcrumbs,
+        Container,
+        Col,
+        CardOnList
     },
     computed: {
         ...mapGetters("user", ["user"]),
