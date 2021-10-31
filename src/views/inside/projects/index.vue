@@ -54,15 +54,25 @@
         <Page title="Проекты">
 
             <template v-slot:breadcrumbs>
-                <Breadcrumbs :breadcrumbs="breadcrumbs"/>
+            <Container>
+                <Col class-name="flex-grow-1">
+                    <Breadcrumbs :breadcrumbs="breadcrumbs"/>
+                </Col>
+            </Container>
             </template>
 
             <Container>
                 <Col class-name="column flex-grow-04">
+                    <div>Поиск и создание</div>
+                </Col>
+            </Container>
 
+
+            <Container>
+                <Col class-name="column flex-grow-04">
                     <div class="projects">
-                        <div v-for="project in projects" :key="project.id" class="projects__item">
-                            <CardOnList :project="project"/>
+                        <div v-for="p in projects" :key="p.id" class="projects__item" @click="loadProject(p.code)">
+                            <CardOnList :project="p" :isActive="p.id === project.id"/>
                         </div>
                     </div>
                 </Col>
@@ -91,8 +101,18 @@
 <!--                            &lt;!&ndash;                            </div>&ndash;&gt;-->
 <!--                        </div>-->
 
-                <Col>
+                <Col class-name="column flex-grow-06">
+                    <div style="margin-left:  20px">
 
+                        project {{ project }}
+
+                    </div>
+                </Col>
+            </Container>
+
+            <Container>
+                <Col class-name="column flex-grow-04">
+                    <div>Пагинация</div>
                 </Col>
             </Container>
 

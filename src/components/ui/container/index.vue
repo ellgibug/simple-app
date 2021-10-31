@@ -1,9 +1,11 @@
 <template>
 
-
+<div class="c-wrapper">
     <div :class="['container', className]">
         <slot/>
     </div>
+</div>
+
 
 
 </template>
@@ -17,10 +19,18 @@
 </script>
 
 <style lang="scss" scoped>
-    .container{
+
+    .c-wrapper{
         margin: 0 auto;
-        /*padding: 0 24px;*/
         max-width: 1188px;
+       // overflow: hidden;
+    }
+    .container{
+       // margin: 0 -10px;
+
+
+        /*padding: 0 24px;*/
+
         /*border: 2px solid red;*/
         display: flex;
 

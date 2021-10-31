@@ -27,7 +27,9 @@ export default {
                 {
                     text: 'Проекты',
                 },
-            ]
+            ],
+            project: {},
+            pages: []
         }
     },
 
@@ -68,7 +70,7 @@ export default {
 
             const that = this;
 
-            request.get(`projects`)
+            request.get(`projects?page=1`)
                 .then(function (response) {
 
                     that.projects = response.data.projects
@@ -86,6 +88,21 @@ export default {
                     code
                 }
             })
+        },
+
+        loadProject(code) {
+            const that = this;
+
+            request.get(`project/${code}`)
+                .then(function (response) {
+
+                    that.project = response.data.project;
+                    that.pages = response.data.pages;
+                    console.log(response)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
     },
 

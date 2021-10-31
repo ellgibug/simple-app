@@ -1,6 +1,5 @@
 <template>
-<!--    <div class="project active">-->
-    <div class="project">
+    <div :class="['project', isActive ? 'active' : '']">
 
         <div :class="['project-type', project.is_published ? 'published' : 'unpublished']"/>
 

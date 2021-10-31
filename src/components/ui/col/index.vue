@@ -19,6 +19,7 @@
 <style lang="scss" scoped>
     .col{
         display: flex;
+        /*margin: 0 10px ;*/
 
 
         &.flex-grow-1{
@@ -31,6 +32,10 @@
 
         &.flex-grow-04{
             flex: 0 1 40%;
+        }
+
+        &.flex-grow-06{
+            flex: 0 1 60%;
         }
 
         &.column{

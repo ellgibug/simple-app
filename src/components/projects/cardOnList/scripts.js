@@ -7,7 +7,8 @@ export default {
     }),
 
     props: [
-        "project"
+        "project",
+        "isActive"
     ],
 
     computed: {
