@@ -90,6 +90,8 @@
                 <Col class-name="column flex-grow-06">
                     <div style="margin-left:  20px">
 
+                        <img src="../../../assets/pr.svg" alt="" width="50px" class="img-pr">
+
                         project {{ project }}
 
                     </div>
