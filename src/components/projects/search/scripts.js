@@ -3,12 +3,11 @@ export default {
 
 
     data: () => ({
-
+        currentSearch: ''
     }),
 
     props: [
-        "project",
-        "isActive"
+        "search",
     ],
 
     computed: {
@@ -17,10 +16,14 @@ export default {
     },
 
     methods: {
-
-
-
+        applySearch(){
+            this.$emit('startSearch', this.currentSearch)
+        }
     },
+
+    mounted(){
+        this.currentSearch = this.search
+    }
 
 
 }

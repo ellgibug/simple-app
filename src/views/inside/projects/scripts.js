@@ -31,7 +31,11 @@ export default {
                 },
             ],
             project: {},
-            pages: []
+            pages: [],
+            page: 1,
+            total: 0,
+            maxPage: 0,
+            search: ''
         }
     },
 
@@ -46,6 +50,20 @@ export default {
         Pagination,
         Search,
     },
+
+    watch: {
+        page(){
+            this.getProjects()
+            this.project = {}
+        },
+
+        search(){
+            this.getProjects()
+            this.project = {}
+            this.page = 1
+        }
+    },
+
     computed: {
         ...mapGetters("user", ["user"]),
 
@@ -74,10 +92,12 @@ export default {
 
             const that = this;
 
-            request.get(`projects?page=1`)
+            request.get(`projects?page=${this.page}&search=${this.search}`)
                 .then(function (response) {
 
                     that.projects = response.data.projects
+                    that.total = response.data.total
+                    that.maxPage = Math.ceil(response.data.total / 4)
                     console.log(response)
                 })
                 .catch(function (error) {
@@ -107,6 +127,16 @@ export default {
                 .catch(function (error) {
                     console.log(error);
                 });
+        },
+
+        pageUpdated(d){
+            this.page = d
+            console.log('pu', d)
+        },
+
+        startSearch(d){
+            this.search = d
+            console.log('pu', d)
         }
     },
 

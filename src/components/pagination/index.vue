@@ -2,7 +2,7 @@
    <div class="pagination">
 
        <div class="pagination__item">
-           <button class="prev-page">
+           <button class="prev-page" @click="goToPrevPage">
                <unicon name="angle-left-b"
                        fill="#91a5af"
                        style="display: flex; align-items: center"
@@ -11,7 +11,7 @@
            </button>
        </div>
        <div class="pagination__item">
-           <input class="current-page" type="number"/>
+           <input class="current-page" type="number" v-model="currentPage" min="1" :max="total"/>
        </div>
        <div class="pagination__item">
             <span class="pagination-delimiter">
@@ -20,11 +20,11 @@
        </div>
        <div class="pagination__item">
            <span class="pagination-total">
-                100
+                {{ total }}
             </span>
        </div>
        <div class="pagination__item">
-           <button class="next-page">
+           <button class="next-page" @click="goToNextPage">
                <unicon name="angle-right-b"
                        fill="#91a5af"
                        style="display: flex; align-items: center"
