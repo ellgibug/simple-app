@@ -23,6 +23,7 @@
     .c-wrapper{
         margin: 0 auto;
         max-width: 1188px;
+        width: 100%;
        // overflow: hidden;
     }
     .container{
@@ -50,6 +51,10 @@
 
         &.justify-space-between{
             justify-content: space-between;
+        }
+
+        &.justify-end{
+            justify-content: flex-end;
         }
     }
 

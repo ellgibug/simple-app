@@ -44,3 +44,36 @@
 //    margin-bottom: 10px;
 //  }
 //}
+
+.add-project {
+  border: none;
+  //background: #91a5af;
+  //background: rgba(61, 109, 253, 1);
+  background: #7042ee;
+  //background-color: #00DBDE;
+  //background-image: linear-gradient(-45deg, #00DBDE 0%, #FC00FF 100%);
+
+  padding: 10px 5px;
+  margin: 0;
+  outline: none;
+  transition: all ease-in-out 0.2s;
+  //border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  border-radius: 2px;
+  width: 100%;
+  color: #f5f9fa;
+
+
+  &:hover{
+    transition: all ease-in-out 0.2s;
+    box-shadow: 0 0 0 0.2rem rgba(61, 109, 253, 0.15);
+
+
+  }
+  &:active{
+    transition: all ease-in-out 0.2s;
+    box-shadow: 0 0 0 0.2rem rgba(61, 109, 253, 0.25);
+
+  }
+}

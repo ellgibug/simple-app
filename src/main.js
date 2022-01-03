@@ -22,6 +22,11 @@ import {
     uniAngleRight,
     uniUsersAlt,
     uniBook,
+    uniArrowCircleLeft,
+    uniArrowCircleRight,
+    uniAngleRightB,
+    uniAngleLeftB,
+    uniSearchAlt,
 
 } from 'vue-unicons/src/icons'
 
@@ -57,6 +62,11 @@ Unicon.add([
     uniAngleRight,
     uniUsersAlt,
     uniBook,
+    uniArrowCircleLeft,
+    uniArrowCircleRight,
+    uniAngleRightB,
+    uniAngleLeftB,
+    uniSearchAlt
 ])
 Vue.use(Unicon)
 Vue.use(require('vue-moment'));

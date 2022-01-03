@@ -41,6 +41,10 @@
         <div class="wrapper__footer">
             <Container>
             Footer уриурпиоукп
+
+                coming soon - upload image, file
+                Пока только название страницы и текст
+
             </Container>
         </div>
     </div>

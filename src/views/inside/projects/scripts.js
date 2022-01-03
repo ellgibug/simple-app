@@ -6,6 +6,8 @@ import Container from "../../../components/ui/container"
 import Col from "../../../components/ui/col"
 import Breadcrumbs from "../../../ui/breadcrumbs"
 import CardOnList from "../../../components/projects/cardOnList"
+import Search from "../../../components/projects/search"
+import Pagination from "../../../components/pagination"
 
 
 export default {
@@ -40,7 +42,9 @@ export default {
         Breadcrumbs,
         Container,
         Col,
-        CardOnList
+        CardOnList,
+        Pagination,
+        Search,
     },
     computed: {
         ...mapGetters("user", ["user"]),

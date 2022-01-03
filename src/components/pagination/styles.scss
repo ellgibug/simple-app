@@ -1,0 +1,91 @@
+@import "../../styles/ui/colors";
+
+.pagination{
+  display: flex;
+  align-items: center;
+  width: max-content;
+
+  margin: -5px;
+
+  &__item{
+    margin: 5px;
+    flex-grow: 0;
+  }
+}
+
+
+.prev-page, .next-page{
+  border: none;
+  background: transparent;
+  padding: 5px;
+  margin: 0;
+  outline: none;
+  transition: all ease-in-out 0.2s;
+  //border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  border-radius: 2px;
+
+
+  &:hover{
+    transition: all ease-in-out 0.2s;
+    box-shadow: 0 0 0 0.2rem rgba(61, 109, 253, 0.15);
+
+
+  }
+  &:active{
+    transition: all ease-in-out 0.2s;
+    box-shadow: 0 0 0 0.2rem rgba(61, 109, 253, 0.25);
+
+  }
+}
+
+.current-page{
+  background: transparent;
+  height: 35px;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  width: 50px;
+  border: 1px solid #91a5af;
+  transition: all ease-in-out 0.2s;
+  color: #91a5af;
+  font-weight: 600;
+  border-radius: 2px;
+  text-align: center;
+
+  &:hover{
+    transition: all ease-in-out 0.2s;
+    box-shadow: 0 0 0 0.2rem rgba(61, 109, 253, 0.15);
+
+
+  }
+  &:active{
+    transition: all ease-in-out 0.2s;
+    box-shadow: 0 0 0 0.2rem rgba(61, 109, 253, 0.25);
+
+  }
+
+}
+
+
+
+/* Для Chrome */
+.current-page::-webkit-inner-spin-button,
+.current-page::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+/* Для Firefox */
+.current-page{
+  -moz-appearance: textfield;
+}
+
+
+.pagination-delimiter, .pagination-total{
+  font-size: 18px;
+}
+
+// e83dfd
+// 692eca

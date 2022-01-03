@@ -38,8 +38,20 @@
             flex: 0 1 60%;
         }
 
+        &.flex-grow-07{
+            flex: 0 1 70%;
+        }
+
+        &.flex-grow-03{
+            flex: 0 1 30%;
+        }
+
         &.column{
             flex-direction: column;
+        }
+
+        &.justify-end{
+            justify-content: flex-end;
         }
     }
 

@@ -61,9 +61,16 @@
             </Container>
             </template>
 
-            <Container>
+            <Container style="margin-bottom: 20px">
                 <Col class-name="column flex-grow-04">
-                    <div>Поиск и создание</div>
+                    <Container>
+                        <Col class-name="flex-grow-07">
+                            <Search/>
+                        </Col>
+                        <Col class-name="flex-grow-03">
+                            <Button class="add-project">Новый проект</Button>
+                        </Col>
+                    </Container>
                 </Col>
             </Container>
 
@@ -110,9 +117,9 @@
                 </Col>
             </Container>
 
-            <Container>
-                <Col class-name="column flex-grow-04">
-                    <div>Пагинация</div>
+            <Container style="margin-top: 20px">
+                <Col class-name="flex-grow-04 justify-end">
+                    <Pagination/>
                 </Col>
             </Container>
 
