@@ -108,14 +108,7 @@ export default {
                 });
         },
 
-        goToProject(code){
-            this.$router.push({
-                name: "Project",
-                params: {
-                    code
-                }
-            })
-        },
+
 
         loadProject(code) {
             const that = this;

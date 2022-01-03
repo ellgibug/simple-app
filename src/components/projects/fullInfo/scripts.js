@@ -16,7 +16,14 @@ export default {
     },
 
     methods: {
-
+        goToProject(code){
+            this.$router.push({
+                name: "Page",
+                params: {
+                    code
+                }
+            })
+        }
 
 
     },

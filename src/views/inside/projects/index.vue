@@ -90,7 +90,7 @@
                 <Col class-name="column flex-grow-06">
                     <div style="margin-left:  20px; height: 100%">
                         <div v-if="project.id" style="display: flex; min-height: 100%; justify-content: center; align-items: stretch;">
-                            <FullInfo :project="project" :key="project.id"/>
+                            <FullInfo :project="project" :key="project.id" />
                         </div>
                         <div v-else style="display: flex; min-height: 100%; justify-content: center; align-items: center; flex-direction: column; text-align: center; color: rgba(145,165,175,0.87);">
                             <img src="../../../assets/pr.svg" alt="" width="50px" class="img-pr">

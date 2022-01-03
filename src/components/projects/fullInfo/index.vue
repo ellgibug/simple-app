@@ -19,7 +19,9 @@
             <div v-for="page in project.pages" class="full_project_pages__item full_project_page">
                 <div class="full_project_page__title">{{ page.title }} </div>
                 <div class="full_project_page__body">{{ page.body.slice(0, 500) }}...</div>
-                <div class="full_project_page__actions">Watch</div>
+                <div class="full_project_page__actions">
+                    <button @click="goToProject(page.code)">watch</button>
+                </div>
             </div>
         </div>
 
