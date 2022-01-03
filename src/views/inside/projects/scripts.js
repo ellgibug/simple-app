@@ -7,6 +7,7 @@ import Col from "../../../components/ui/col"
 import Breadcrumbs from "../../../ui/breadcrumbs"
 import CardOnList from "../../../components/projects/cardOnList"
 import Search from "../../../components/projects/search"
+import FullInfo from "../../../components/projects/fullInfo"
 import Pagination from "../../../components/pagination"
 
 
@@ -35,7 +36,8 @@ export default {
             page: 1,
             total: 0,
             maxPage: 0,
-            search: ''
+            search: '',
+            itemsPerPage: 1,
         }
     },
 
@@ -49,6 +51,7 @@ export default {
         CardOnList,
         Pagination,
         Search,
+        FullInfo
     },
 
     watch: {
@@ -97,7 +100,7 @@ export default {
 
                     that.projects = response.data.projects
                     that.total = response.data.total
-                    that.maxPage = Math.ceil(response.data.total / 4)
+                    that.maxPage = Math.ceil(response.data.total / response.data.itemsPerPage)
                     console.log(response)
                 })
                 .catch(function (error) {

@@ -1,0 +1,78 @@
+@import "../../../styles/ui/colors";
+
+.full_project{
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 12px 28px 0px, rgba(0, 0, 0, 0.05) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  width: 100%;
+  padding: 15px 0;
+  transition: all ease-in-out 0.4s;
+  border-radius: 2px;
+  position: relative;
+  border-left: 5px solid #7042ee;
+
+  animation-name: anim;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+
+  &__hide{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+
+  &__title{
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 5px;
+    padding: 0 20px;
+  }
+  &__user{
+    color: #91a5af;
+    font-size: 14px;
+    padding: 0 20px;
+  }
+  &__actions{
+    margin: 20px 0;
+    padding: 15px 20px;
+    background: rgba(112, 66, 238, 0.05);
+  }
+  &__pages{
+    padding: 0 20px;
+  }
+}
+
+.full_project_pages{
+  &__title{
+    color: #91a5af;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  &__item:not(:last-child){
+    margin-bottom: 20px;
+  }
+}
+
+.full_project_page{
+
+  &__title{
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  &__body{
+    margin-bottom: 10px;
+  }
+  &__actions{
+
+  }
+}
+
+@keyframes anim {
+  0% {-webkit-transform:scaleX(-1);
+    -moz-transform:scaleX(-1);
+    -o-transform:scaleX(-1);
+    transform:scaleX(-1);}
+  100% {-webkit-transform:scaleX(1);
+    -moz-transform:scaleX(1);
+    -o-transform:scaleX(1);
+    transform:scaleX(1);}
+}
