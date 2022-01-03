@@ -10,21 +10,7 @@
 <!--                        Создать новый проект-->
 <!--                    </div>-->
 <!--                </div>-->
-<!--                <h-dialog-->
-<!--                        title="Создать новый проект"-->
-<!--                        button="Сохранить"-->
-<!--                        :isOpen = "dialogs.create.visible"-->
-<!--                        @close="dialogs.create.visible = false"-->
-<!--                        @action="test1"-->
-<!--                >-->
 
-<!--                    <div>-->
-<!--                        Название<br/>-->
-<!--                        <input type="text" v-model="dialogs.create.model.title">-->
-<!--                    </div>-->
-
-
-<!--                </h-dialog>-->
 <!--                <div class="projects">-->
 <!--                    <div v-for="project in projects" :key="project.id" :class="['projects__item', 'project']">-->
 <!--                        <div class="project__left">-->
@@ -53,6 +39,22 @@
 
         <Page title="Проекты">
 
+            <h-dialog
+                    title="Создать новый проект"
+                    button="Сохранить"
+                    :isOpen = "dialogs.create.visible"
+                    @close="dialogs.create.visible = false"
+                    @action="test1"
+            >
+
+                <div>
+                    Название<br/>
+                    <input type="text" v-model="dialogs.create.model.title">
+                </div>
+
+
+            </h-dialog>
+
             <template v-slot:breadcrumbs>
             <Container>
                 <Col class-name="flex-grow-1">
@@ -68,7 +70,7 @@
                             <Search :search="search" @startSearch="startSearch"/>
                         </Col>
                         <Col class-name="flex-grow-03">
-                            <Button class="add-project">Новый проект</Button>
+                            <Button class="add-project" @click="dialogs.create.visible = true">Новый проект</Button>
                         </Col>
                     </Container>
                 </Col>

@@ -81,7 +81,8 @@ export default {
                 organization_id: this.user.organization.id,
             })
                 .then((response) => {
-                    this.projects.push(response.data.project)
+                    // this.projects.push(response.data.project)
+                    this.getProjects()
                     this.dialogs.create.visible = false;
                     console.log(response)
                     // that.setUser(response.data.user)
