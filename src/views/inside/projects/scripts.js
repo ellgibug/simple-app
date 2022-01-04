@@ -4,20 +4,18 @@ import HDialog from "../../../components/dialog/index"
 import Page from "../../../components/ui/page"
 import Container from "../../../components/ui/container"
 import Col from "../../../components/ui/col"
+import HButton from "../../../components/ui/HButton"
 import Breadcrumbs from "../../../ui/breadcrumbs"
 import CardOnList from "../../../components/projects/cardOnList"
 import Search from "../../../components/projects/search"
 import FullInfo from "../../../components/projects/fullInfo"
 import Pagination from "../../../components/pagination"
 
-
 export default {
-
-    name: "index",
+    name: "Projects",
 
     data(){
         return {
-            projects: [],
             dialogs: {
                 create: {
                     visible: false,
@@ -26,24 +24,31 @@ export default {
                     }
                 }
             },
+
             breadcrumbs: [
                 {
                     text: 'Проекты',
                 },
             ],
+
+            projects: [],
             project: {},
-            pages: [],
-            page: 1,
-            total: 0,
-            maxPage: 0,
+
             search: '',
-            itemsPerPage: 1,
+
+            pagination: {
+                page: 1,
+                total: 0,
+                maxPage: 0,
+                itemsPerPage: 1,
+            }
         }
     },
 
 
     components: {
-        'h-dialog': HDialog,
+        HDialog,
+        HButton,
         Page,
         Breadcrumbs,
         Container,
@@ -55,7 +60,7 @@ export default {
     },
 
     watch: {
-        page(){
+        'pagination.page'(){
             this.getProjects()
             this.project = {}
         },
@@ -69,71 +74,80 @@ export default {
 
     computed: {
         ...mapGetters("user", ["user"]),
-
     },
 
     methods: {
-        test1(){
-            const that = this;
+        /**
+         * Сохранение проекта
+         */
+        saveProject(){
+
+            const that = this
+
             request.post('projects/create', {
                 title: this.dialogs.create.model.title,
                 user_id: this.user.id,
                 organization_id: this.user.organization.id,
             })
                 .then((response) => {
-                    // this.projects.push(response.data.project)
-                    this.getProjects()
-                    this.dialogs.create.visible = false;
-                    console.log(response)
-                    // that.setUser(response.data.user)
-
+                    that.search = ''
+                    that.pagination.page = that.pagination.maxPage
+                    that.dialogs.create.visible = false
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    console.log(error)
                 })
         },
+
+        /**
+         * Получение всех проектов по странице
+         */
         getProjects() {
 
-            const that = this;
+            const that = this
 
-            request.get(`projects?page=${this.page}&search=${this.search}`)
+            request.get(`projects?page=${this.pagination.page}&search=${this.search}`)
                 .then(function (response) {
-
                     that.projects = response.data.projects
                     that.total = response.data.total
-                    that.maxPage = Math.ceil(response.data.total / response.data.itemsPerPage)
-                    console.log(response)
+                    that.pagination.maxPage = Math.ceil(response.data.total / response.data.itemsPerPage)
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
         },
 
-
-
+        /**
+         * Загрузка проекта по коду
+         * @param code
+         */
         loadProject(code) {
-            const that = this;
+
+            const that = this
 
             request.get(`project/${code}`)
                 .then(function (response) {
-
                     that.project = response.data.project;
-                    that.pages = response.data.pages;
-                    console.log(response)
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
         },
 
-        pageUpdated(d){
-            this.page = d
-            console.log('pu', d)
+        /**
+         * Обновление страницы
+         * @param page
+         */
+        pageUpdated(page){
+            this.pagination.page = page
         },
 
-        startSearch(d){
-            this.search = d
-            console.log('pu', d)
+        /**
+         * Обновление поиска
+         * @param search
+         */
+        startSearch(search){
+            this.search = search
         }
     },
 

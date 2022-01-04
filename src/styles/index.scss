@@ -1,2 +1,23 @@
 @import "reset";
 
+@for $i from 0 through 60 {
+  .mb-#{$i} {
+    margin-bottom: 2px * $i;
+  }
+
+  .mt-#{$i} {
+    margin-top: 2px * $i;
+  }
+
+  .mr-#{$i} {
+    margin-right: 2px * $i;
+  }
+
+  .ml-#{$i} {
+    margin-left: 2px * $i;
+  }
+}
+
+.height-100{
+  height: 100%;
+}
