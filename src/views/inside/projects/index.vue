@@ -1,117 +1,81 @@
 <template>
-<!--    <div class="p">-->
-<!--        <div class="p__content p-content">-->
-<!--            <div class="p-content__title">-->
-<!--                <h1>Проекты</h1>-->
-<!--            </div>-->
-<!--            <div class="p-content__inner">-->
-<!--                <div class="projects-menu">-->
-<!--                    <div class="projects-menu__item" @click="dialogs.create.visible = true">-->
-<!--                        Создать новый проект-->
-<!--                    </div>-->
-<!--                </div>-->
 
-<!--                <div class="projects">-->
-<!--                    <div v-for="project in projects" :key="project.id" :class="['projects__item', 'project']">-->
-<!--                        <div class="project__left">-->
-<!--                            <div class="project__title">-->
-<!--                                {{ project.title }}-->
-<!--                            </div>-->
-<!--                            <div class="project__url">{{ project.url }}</div>-->
-<!--                            <div class="project__code">{{ project.code }}</div>-->
+    <Page title="Проекты">
 
-<!--                        </div>-->
-<!--                        <div class="project__right">-->
-<!--                            <div class="project__date">{{ project.created_at | moment("DD.MM.YYYY HH:m:s") }}</div>-->
-<!--                            <div class="project__open">-->
-<!--                                <button class="button" @click="goToProject(project.code)">Открыть</button>-->
-<!--                            </div>-->
-<!--&lt;!&ndash;                            <div class="project__edit">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <button class="button">Настройки</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+        <h-dialog
+                title="Создать новый проект"
+                button="Сохранить"
+                :isOpen="dialogs.create.visible"
+                @close="dialogs.create.visible = false"
+                @action="test1"
+        >
+
+            <div>
+                Название<br/>
+                <input type="text" v-model="dialogs.create.model.title">
+            </div>
 
 
-        <Page title="Проекты">
+        </h-dialog>
 
-            <h-dialog
-                    title="Создать новый проект"
-                    button="Сохранить"
-                    :isOpen = "dialogs.create.visible"
-                    @close="dialogs.create.visible = false"
-                    @action="test1"
-            >
-
-                <div>
-                    Название<br/>
-                    <input type="text" v-model="dialogs.create.model.title">
-                </div>
-
-
-            </h-dialog>
-
-            <template v-slot:breadcrumbs>
+        <template v-slot:breadcrumbs>
             <Container>
                 <Col class-name="flex-grow-1">
                     <Breadcrumbs :breadcrumbs="breadcrumbs"/>
                 </Col>
             </Container>
-            </template>
+        </template>
 
-            <Container style="margin-bottom: 20px">
-                <Col class-name="column flex-grow-04">
-                    <Container>
-                        <Col class-name="flex-grow-07">
-                            <Search :search="search" @startSearch="startSearch"/>
-                        </Col>
-                        <Col class-name="flex-grow-03">
-                            <Button class="add-project" @click="dialogs.create.visible = true">Новый проект</Button>
-                        </Col>
-                    </Container>
-                </Col>
-            </Container>
+        <Container style="margin-bottom: 20px">
+            <Col class-name="column flex-grow-04">
+                <Container>
+                    <Col class-name="flex-grow-07">
+                        <Search :search="search" @startSearch="startSearch"/>
+                    </Col>
+                    <Col class-name="flex-grow-03">
+                        <Button class="add-project" @click="dialogs.create.visible = true">Новый проект</Button>
+                    </Col>
+                </Container>
+            </Col>
+        </Container>
 
 
-            <Container>
-                <Col class-name="column flex-grow-04">
-                    <div class="projects" v-if="projects.length">
-                        <div v-for="p in projects" :key="p.id" class="projects__item" @click="loadProject(p.code)">
-                            <CardOnList :project="p" :isActive="p.id === project.id"/>
-                        </div>
+        <Container>
+            <Col class-name="column flex-grow-04">
+                <div class="projects" v-if="projects.length">
+                    <div v-for="p in projects" :key="p.id" class="projects__item" @click="loadProject(p.code)">
+                        <CardOnList :project="p" :isActive="p.id === project.id"/>
                     </div>
-                    <div class="projects" v-else>
-                        No projects here
+                </div>
+                <div class="projects" v-else>
+                    No projects here
+                </div>
+            </Col>
+
+            <Col class-name="column flex-grow-06">
+                <div style="margin-left:  20px; height: 100%">
+                    <div v-if="project.id"
+                         style="display: flex; min-height: 100%; justify-content: center; align-items: stretch;">
+                        <FullInfo :project="project" :key="project.id"/>
                     </div>
-                </Col>
-
-                <Col class-name="column flex-grow-06">
-                    <div style="margin-left:  20px; height: 100%">
-                        <div v-if="project.id" style="display: flex; min-height: 100%; justify-content: center; align-items: stretch;">
-                            <FullInfo :project="project" :key="project.id" />
-                        </div>
-                        <div v-else style="display: flex; min-height: 100%; justify-content: center; align-items: center; flex-direction: column; text-align: center; color: rgba(145,165,175,0.87);">
-                            <img src="../../../assets/pr.svg" alt="" width="50px" class="img-pr">
-                            <br>
-                            Нажмите на карточку проекта <br> для детального просмотра
-                        </div>
+                    <div v-else
+                         style="display: flex; min-height: 100%; justify-content: center; align-items: center; flex-direction: column; text-align: center; color: rgba(145,165,175,0.87);">
+                        <img src="../../../assets/pr.svg" alt="" width="50px" class="img-pr">
+                        <br>
+                        Нажмите на карточку проекта <br> для детального просмотра
                     </div>
-                </Col>
-            </Container>
+                </div>
+            </Col>
+        </Container>
 
-            <Container style="margin-top: 20px" v-if="projects.length">
-                <Col class-name="flex-grow-04 justify-end">
-                    <Pagination :page="page" :total="maxPage" @pageUpdated="pageUpdated" :key="`${page}${maxPage}`"/>
-                </Col>
-            </Container>
+        <Container style="margin-top: 20px" v-if="projects.length">
+            <Col class-name="flex-grow-04 justify-end">
+                <Pagination :page="page" :total="maxPage" @pageUpdated="pageUpdated" :key="`${page}${maxPage}`"/>
+            </Col>
+        </Container>
 
 
-        </Page>
-
+    </Page>
 
 
 </template>
