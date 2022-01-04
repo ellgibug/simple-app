@@ -4,6 +4,7 @@ import Skeleton from 'vue-loading-skeleton';
 import router from './router'
 import {store} from './store'
 import axios from 'axios';
+import {VueGrid} from '@liqueflies/vue-grid'
 import Unicon from 'vue-unicons'
 import {
     uniLayerGroupMonochrome,
@@ -29,13 +30,7 @@ import {
     uniSearchAlt,
 
 } from 'vue-unicons/src/icons'
-
-
-
 import "./styles/index.scss"
-
-
-
 
 require('dotenv').config();
 
@@ -70,6 +65,18 @@ Unicon.add([
 ])
 Vue.use(Unicon)
 Vue.use(require('vue-moment'));
+Vue.use(VueGrid, {
+    columns: 12,
+    gutter: 16,
+    breakpoints: {
+        xs: 320,
+        sm: 576,
+        md: 768,
+        lg: 992,
+        xl: 1188
+    },
+})
+
 
 new Vue({
     router,

@@ -2,6 +2,11 @@
 
 .search-wrapper{
   display: flex;
+  &__item{
+  }
+  &__item:first-child{
+    flex-grow: 1
+  }
 }
 
 
@@ -41,7 +46,8 @@
   height: 39px;
   box-sizing: border-box;
   padding: 5px 10px;
-  width: 270px;
+  //width: 270px;
+  width: 100%;
   border: 1px solid #91a5af;
   transition: all ease-in-out 0.2s;
   color: #91a5af;

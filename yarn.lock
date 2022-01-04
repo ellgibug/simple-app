@@ -925,6 +925,14 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@liqueflies/vue-grid@^0.0.4":
+  version "0.0.4"
+  resolved "https://npm.kodixauto.ru/@liqueflies%2fvue-grid/-/vue-grid-0.0.4.tgz#1508500a6feae28c6cce18c5c5bdf2d4699a7fd7"
+  integrity sha512-u7rr5DGpzM9fFPnHKPGeayPgHlEZ9H+zlcQH3SkTVnqIHaHr5pBUOW2gzt53oHngDdi38edOhWgAgxKCrP1KDg==
+  dependencies:
+    lodash.debounce "4.0.8"
+    lodash.pick "4.4.0"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://npm.kodixauto.ru/@mrmlnc%2freaddir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -5766,6 +5774,11 @@ lodash.bind@^4.1.4:
   resolved "https://npm.kodixauto.ru/lodash.bind/-/lodash.bind-4.2.1.tgz#7ae3017e939622ac31b7d7d7dcb1b34db1690d35"
   integrity sha1-euMBfpOWIqwxt9fX3LGzTbFpDTU=
 
+lodash.debounce@4.0.8:
+  version "4.0.8"
+  resolved "https://npm.kodixauto.ru/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
+  integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
+
 lodash.defaults@^4.0.1:
   version "4.2.0"
   resolved "https://npm.kodixauto.ru/lodash.defaults/-/lodash.defaults-4.2.0.tgz#d09178716ffea4dde9e5fb7b37f6f0802274580c"
@@ -5816,7 +5829,7 @@ lodash.merge@^4.4.0:
   resolved "https://npm.kodixauto.ru/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
-lodash.pick@^4.2.1:
+lodash.pick@4.4.0, lodash.pick@^4.2.1:
   version "4.4.0"
   resolved "https://npm.kodixauto.ru/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
   integrity sha1-UvBWEP/53tQiYRRB7R/BI6AwAbM=

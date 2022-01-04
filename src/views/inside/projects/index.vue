@@ -17,77 +17,88 @@
 
         <!-- Хлебные крошки -->
         <template v-slot:breadcrumbs>
-            <Container>
-                <Col class-name="flex-grow-1">
-                    <Breadcrumbs :breadcrumbs="breadcrumbs"/>
-                </Col>
-            </Container>
+            <container>
+                <row>
+                    <column>
+                        <Breadcrumbs :breadcrumbs="breadcrumbs"/>
+                    </column>
+                </row>
+            </container>
         </template>
 
         <!-- Поиск и создание -->
         <div class="mb-20">
-            <Container>
-                <Col class-name="column flex-grow-04">
-                    <Container>
-                        <Col class-name="flex-grow-07">
-                            <Search :search="search" @startSearch="startSearch"/>
-                        </Col>
-                        <Col class-name="flex-grow-03">
-                            <HButton @handleClick="dialogs.create.visible = true">
-                                Новый проект
-                            </HButton>
-                        </Col>
-                    </Container>
-                </Col>
-            </Container>
+            <container >
+                <row >
+                    <column :lg="5" >
+                        <row>
+                            <column :lg="7" >
+                                <Search :search="search" @startSearch="startSearch"/>
+                            </column>
+                            <column :lg="5" >
+                                <HButton @handleClick="dialogs.create.visible = true">
+                                    Новый проект
+                                </HButton>
+                            </column>
+                        </row>
+                    </column>
+                </row>
+            </container>
         </div>
 
         <!-- Список проектов -->
         <template v-if="projects.length">
-            <Container>
-                <Col class-name="column flex-grow-04">
-                    <div class="projects" v-if="projects.length">
-                        <div v-for="p in projects" :key="p.id"
-                             class="projects__item"
-                             @click="loadProject(p.code)">
-                            <CardOnList :project="p" :isActive="p.id === project.id"/>
-                        </div>
-                    </div>
-                </Col>
-
-                <Col class-name="column flex-grow-06">
-                    <div class="ml-20 height-100">
-                        <div class="project-full-info-container" v-if="project.id">
-                            <FullInfo :project="project" :key="project.id"/>
-                        </div>
-                        <div v-else class="project-opening-hint">
-                            <img src="../../../assets/pr.svg" alt="" width="50px">
-                            <div>
-                                Нажмите на карточку проекта <br> для детального просмотра
+            <container>
+                <row>
+                    <column :lg="5">
+                        <div class="projects" v-if="projects.length">
+                            <div v-for="p in projects" :key="p.id"
+                                 class="projects__item"
+                                 @click="loadProject(p.code)">
+                                <CardOnList :project="p" :isActive="p.id === project.id"/>
                             </div>
                         </div>
-                    </div>
-                </Col>
-            </Container>
+                    </column>
+
+                    <column :lg="7">
+                        <div class="ml-20 height-100">
+                            <div class="project-full-info-container" v-if="project.id">
+                                <FullInfo :project="project" :key="project.id"/>
+                            </div>
+                            <div v-else class="project-opening-hint">
+                                <img src="../../../assets/pr.svg" alt="" width="50px">
+                                <div>
+                                    Нажмите на карточку проекта <br> для детального просмотра
+                                </div>
+                            </div>
+                        </div>
+                    </column>
+                </row>
+            </container>
 
             <div class="mt-20">
-                <Container>
-                    <Col class-name="flex-grow-04 justify-end">
-                        <Pagination
-                                :page="pagination.page"
-                                :total="pagination.maxPage"
-                                @pageUpdated="pageUpdated"
-                                :key="`${pagination.page}${pagination.maxPage}`"/>
-                    </Col>
-                </Container>
+                <container>
+                    <row>
+                        <column :lg="5">
+                            <Pagination
+                                    :page="pagination.page"
+                                    :total="pagination.maxPage"
+                                    @pageUpdated="pageUpdated"
+                                    :key="`${pagination.page}${pagination.maxPage}`"/>
+                        </column>
+                    </row>
+                </container>
             </div>
         </template>
 
         <!-- Проекты не найдены -->
         <template v-else>
-            Проекты не найдены
+            <container>
+                <row>
+                    <column :lg="12">Проекты не найдены</column>
+                </row>
+            </container>
         </template>
-
 
 
     </Page>
