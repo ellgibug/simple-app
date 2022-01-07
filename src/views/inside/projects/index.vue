@@ -19,7 +19,7 @@
         <template v-slot:breadcrumbs>
             <container>
                 <row>
-                    <column>
+                    <column :lg="12">
                         <Breadcrumbs :breadcrumbs="breadcrumbs"/>
                     </column>
                 </row>

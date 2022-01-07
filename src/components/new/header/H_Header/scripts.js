@@ -1,15 +1,11 @@
 import request from "../../../../helpers/request";
 import {mapActions, mapGetters} from "vuex"
-import Container from "../../../ui/container/index"
-import Col from "../../../ui/col/index"
 import HeaderLink from "../links"
 
 export default {
     name: "H_Header",
 
     components: {
-        Container,
-        Col,
         HeaderLink
     },
 
