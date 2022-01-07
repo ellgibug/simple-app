@@ -32,20 +32,25 @@
             <h_header/>
         </div>
         <main class="wrapper__main">
-            <Container>
-                <Col className="flex-grow-1">
-                    <router-view/>
-                </Col>
-            </Container>
+            <container :xl="1188" style="border: 2px solid red">
+                <row>
+                    <column>
+                        <router-view/>
+                    </column>
+                </row>
+            </container>
         </main>
         <div class="wrapper__footer">
-            <Container>
-            Footer уриурпиоукп
+            <container :xl="1188" style="border: 2px solid red">
+                <row>
+                    <column>
+                        Footer уриурпиоукп
 
-                coming soon - upload image, file
-                Пока только название страницы и текст
-
-            </Container>
+                        coming soon - upload image, file
+                        Пока только название страницы и текст
+                    </column>
+                </row>
+            </container>
         </div>
     </div>
 

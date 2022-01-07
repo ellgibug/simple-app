@@ -11,7 +11,7 @@ header{
   img{
     height: 50px;
 
-    @media screen and (max-width: 700px){
+    @media screen and (max-width: 781px){
       height: 40px;
     }
   }
@@ -38,14 +38,14 @@ header{
       display: none;
     }
 
-    @media screen and (max-width: 700px){
+    @media screen and (max-width: 781px){
       padding: 5px 20px;
     }
 
     &:not(:first-child){
       border-left: 1px solid #eee;
 
-      @media screen and (max-width: 700px){
+      @media screen and (max-width: 781px){
         border-left: none;
       }
 
@@ -54,19 +54,19 @@ header{
     &.logout{
       border-right: 1px solid #eee;
 
-      @media screen and (max-width: 700px){
+      @media screen and (max-width: 781px){
         border-right: none;
       }
     }
 
     &:not(.logo){
-      @media screen and (max-width: 700px){
+      @media screen and (max-width: 781px){
         display: none;
       }
     }
 
     &.burger{
-      @media screen and (max-width: 700px){
+      @media screen and (max-width: 781px){
         display: flex;
       }
     }
@@ -82,7 +82,7 @@ header{
   }
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 781px){
 
   .header-links{
     &__item, &item.logout{

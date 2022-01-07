@@ -9,10 +9,11 @@ import Search from "../../../components/projects/search"
 import FullInfo from "../../../components/projects/fullInfo"
 import Pagination from "../../../components/pagination"
 
+
 export default {
     name: "Projects",
 
-    data(){
+    data() {
         return {
             dialogs: {
                 create: {
@@ -39,7 +40,9 @@ export default {
                 total: 0,
                 maxPage: 0,
                 itemsPerPage: 1,
-            }
+            },
+
+            smallWindow: false
         }
     },
 
@@ -58,12 +61,12 @@ export default {
     },
 
     watch: {
-        'pagination.page'(){
+        'pagination.page'() {
             this.getProjects()
             this.project = {}
         },
 
-        search(){
+        search() {
             this.getProjects()
             this.project = {}
             this.page = 1
@@ -72,13 +75,18 @@ export default {
 
     computed: {
         ...mapGetters("user", ["user"]),
+
+        // smallWindow(){
+        //     console.log(window.innerWidth)
+        //     return window.innerWidth < 576
+        // }
     },
 
     methods: {
         /**
          * Сохранение проекта
          */
-        saveProject(){
+        saveProject() {
 
             const that = this
 
@@ -136,7 +144,7 @@ export default {
          * Обновление страницы
          * @param page
          */
-        pageUpdated(page){
+        pageUpdated(page) {
             this.pagination.page = page
         },
 
@@ -144,13 +152,25 @@ export default {
          * Обновление поиска
          * @param search
          */
-        startSearch(search){
+        startSearch(search) {
             this.search = search
+        },
+
+        detectWindowSize() {
+            this.smallWindow = Boolean(window.innerWidth < 576)
         }
     },
 
     beforeMount() {
         this.getProjects()
+    },
 
+    mounted() {
+        this.detectWindowSize()
+        window.addEventListener('resize',  this.detectWindowSize)
+    },
+
+    destroyed() {
+        window.removeEventListener('resize', this.detectWindowSize)
     }
 }

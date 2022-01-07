@@ -28,6 +28,7 @@ import {
     uniAngleRightB,
     uniAngleLeftB,
     uniSearchAlt,
+    uniPlus
 
 } from 'vue-unicons/src/icons'
 import "./styles/index.scss"
@@ -61,7 +62,8 @@ Unicon.add([
     uniArrowCircleRight,
     uniAngleRightB,
     uniAngleLeftB,
-    uniSearchAlt
+    uniSearchAlt,
+    uniPlus
 ])
 Vue.use(Unicon)
 Vue.use(require('vue-moment'));
@@ -71,7 +73,7 @@ Vue.use(VueGrid, {
     breakpoints: {
         xs: 320,
         sm: 576,
-        md: 768,
+        md: 780,
         lg: 992,
         xl: 1188
     },

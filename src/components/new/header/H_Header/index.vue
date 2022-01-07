@@ -1,8 +1,8 @@
 <template>
     <header>
-        <container :xl="1188">
+        <container :xl="1188" style="border: 2px solid red">
             <row>
-                <column :lg="5" >
+                <column :xl="5" :lg="5" :md="6" :sm="3" :xs="3" >
                     <div class="header-links">
                         <div class="header-links__item logo" @click="goTo('Dashboard')">
                             <img src="../../../../assets/logo2.svg" alt="" height="50px">
@@ -15,7 +15,7 @@
                         </div>
                     </div>
                 </column>
-                <column :lg="3" :lgShift="4">
+                <column :xl="3" :lg="3" :lgShift="4" :md="5" :mdShift="1" :sm="2" :xs="3" :smShift="7" :xsShift="6">
                     <div class="header-links">
                         <div class="header-links__item" @click="goTo('Profile')">
                             <HeaderLink iconName="user" :linkText="user.name"/>
@@ -30,16 +30,6 @@
                 </column>
             </row>
         </container>
-
-
-<!--        <Container class-name="justify-space-between align-center">-->
-<!--            <Col>-->
-<!--                -->
-<!--            </Col>-->
-<!--            <Col style="height: 70px">-->
-<!--                -->
-<!--            </Col>-->
-<!--        </Container>-->
     </header>
 </template>
 

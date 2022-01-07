@@ -1,8 +1,6 @@
 import request from "../../helpers/request";
 import {mapActions, mapGetters} from "vuex"
 import h_header from "../../components/new/header/H_Header"
-import Container from "../../components/ui/container"
-import Col from "../../components/ui/col"
 
 export default {
     name: "InsideLayout",
@@ -10,8 +8,7 @@ export default {
 
     components: {
         h_header,
-        Container,
-        Col
+
     },
 
     data: () => ({

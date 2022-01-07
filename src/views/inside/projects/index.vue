@@ -17,50 +17,55 @@
 
         <!-- Хлебные крошки -->
         <template v-slot:breadcrumbs>
-            <container>
-                <row>
-                    <column :lg="12">
-                        <Breadcrumbs :breadcrumbs="breadcrumbs"/>
-                    </column>
-                </row>
-            </container>
+            <row>
+                <column :lg="12">
+                    <Breadcrumbs :breadcrumbs="breadcrumbs"/>
+                </column>
+            </row>
         </template>
 
         <!-- Поиск и создание -->
         <div class="mb-20">
-            <container >
-                <row >
-                    <column :lg="5" >
-                        <row>
-                            <column :lg="7" >
-                                <Search :search="search" @startSearch="startSearch"/>
-                            </column>
-                            <column :lg="5" >
-                                <HButton @handleClick="dialogs.create.visible = true">
-                                    Новый проект
-                                </HButton>
-                            </column>
-                        </row>
-                    </column>
-                </row>
-            </container>
+            <row>
+                <column :lg="5" :md="12">
+                    <row>
+                        <column :lg="7" :md="7" :sm="6" :xs="9">
+                            <Search :search="search" @startSearch="startSearch"/>
+                        </column>
+                        <column :lg="5" :md="5" :sm="6" :xs="3">
+                            <HButton @handleClick="dialogs.create.visible = true">
+                                <template v-if="smallWindow">
+                                    <unicon name="plus"
+                                            fill="#fff"
+                                            style="display: flex"
+                                            height="20" width="20"
+                                    />
+                                </template>
+                                <template v-else>Новый проект</template>
+                            </HButton>
+                        </column>
+                    </row>
+                </column>
+            </row>
         </div>
+
 
         <!-- Список проектов -->
         <template v-if="projects.length">
-            <container>
-                <row>
-                    <column :lg="5">
-                        <div class="projects" v-if="projects.length">
-                            <div v-for="p in projects" :key="p.id"
-                                 class="projects__item"
-                                 @click="loadProject(p.code)">
-                                <CardOnList :project="p" :isActive="p.id === project.id"/>
-                            </div>
+            <row>
+                <column :lg="5" :md="12">
+                    <div class="projects" v-if="projects.length">
+                        <div v-for="p in projects" :key="p.id"
+                             class="projects__item"
+                             @click="loadProject(p.code)">
+                            <CardOnList :project="p" :isActive="p.id === project.id"/>
                         </div>
-                    </column>
+                    </div>
+                </column>
 
-                    <column :lg="7">
+
+                <column :lg="7" :md="0">
+                    <hidden until="lg" class="height-100">
                         <div class="height-100">
                             <div class="project-full-info-container" v-if="project.id">
                                 <FullInfo :project="project" :key="project.id" @closeProject="project = {}"/>
@@ -72,32 +77,29 @@
                                 </div>
                             </div>
                         </div>
-                    </column>
-                </row>
-            </container>
+                    </hidden>
+                </column>
+
+            </row>
 
             <div class="mt-20">
-                <container>
-                    <row>
-                        <column :lg="5">
-                            <Pagination
-                                    :page="pagination.page"
-                                    :total="pagination.maxPage"
-                                    @pageUpdated="pageUpdated"
-                                    :key="`${pagination.page}${pagination.maxPage}`"/>
-                        </column>
-                    </row>
-                </container>
+                <row>
+                    <column :lg="5">
+                        <Pagination
+                                :page="pagination.page"
+                                :total="pagination.maxPage"
+                                @pageUpdated="pageUpdated"
+                                :key="`${pagination.page}${pagination.maxPage}`"/>
+                    </column>
+                </row>
             </div>
         </template>
 
         <!-- Проекты не найдены -->
         <template v-else>
-            <container>
-                <row>
-                    <column :lg="12">Проекты не найдены</column>
-                </row>
-            </container>
+            <row>
+                <column :lg="12">Проекты не найдены</column>
+            </row>
         </template>
 
 
