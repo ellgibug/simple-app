@@ -32,7 +32,7 @@
             <h_header/>
         </div>
         <main class="wrapper__main">
-            <container :xl="1188" style="border: 2px solid red">
+            <container :xl="1188" >
                 <row>
                     <column>
                         <router-view/>
@@ -41,7 +41,7 @@
             </container>
         </main>
         <div class="wrapper__footer">
-            <container :xl="1188" style="border: 2px solid red">
+            <container :xl="1188" >
                 <row>
                     <column>
                         Footer уриурпиоукп

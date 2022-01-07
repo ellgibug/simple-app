@@ -1,6 +1,6 @@
 <template>
     <header>
-        <container :xl="1188" style="border: 2px solid red">
+        <container :xl="1188" >
             <row>
                 <column :xl="5" :lg="5" :md="6" :sm="3" :xs="3" >
                     <div class="header-links">
