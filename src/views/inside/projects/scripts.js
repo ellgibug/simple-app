@@ -112,7 +112,9 @@ export default {
 
             const that = this
 
-            request.get(`projects?page=${this.pagination.page}&search=${this.search}`)
+            const page = this.search ? 1 : this.pagination.page
+
+            request.get(`projects?page=${page}&search=${this.search}`)
                 .then(function (response) {
                     that.projects = response.data.projects
                     that.total = response.data.total

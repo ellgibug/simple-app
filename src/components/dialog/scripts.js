@@ -1,11 +1,14 @@
-import request from "../../helpers/request";
-import {mapActions, mapGetters} from "vuex"
+import HButton from "../../components/ui/HButton"
+
 
 export default {
     name: "h-dialog",
 
-    data: () => ({
+    components: {
+        HButton,
+    },
 
+    data: () => ({
     }),
 
     props: [
@@ -14,13 +17,24 @@ export default {
         'button'
     ],
 
+    watch: {
+        isOpen() {
+            if(this.isOpen){
+                document.body.style.overflow = 'hidden'
+                document.body.style.height = '100%'
+            } else {
+                document.body.style.overflow = 'auto'
+                document.body.style.height = 'auto'
+            }
+        }
+    },
+
     computed: {
 
 
     },
 
     methods: {
-
         handleOutsideClick (e) {
             if (this.$refs.dialog && this.$refs.dialog.contains(e.target)) {
                 return
