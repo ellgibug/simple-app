@@ -2,9 +2,11 @@
     <div class="full_project">
 
         <div class="full_project__hide">
-            <unicon name="times"
-                    style="display: flex"
-                    height="24"/>
+            <button class="transparent-button" @click="closeProject">
+                <unicon name="times"
+                        style="display: flex"
+                        height="24"/>
+            </button>
         </div>
         <div class="full_project__title"> {{ project.title }}</div>
         <div class="full_project__user">Автор: {{ project.user.name }}</div>

@@ -63,7 +63,7 @@
                     <column :lg="7">
                         <div class="height-100">
                             <div class="project-full-info-container" v-if="project.id">
-                                <FullInfo :project="project" :key="project.id"/>
+                                <FullInfo :project="project" :key="project.id" @closeProject="project = {}"/>
                             </div>
                             <div v-else class="project-opening-hint">
                                 <img src="../../../assets/pr.svg" alt="" width="50px">

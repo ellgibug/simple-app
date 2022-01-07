@@ -2,7 +2,7 @@
    <div class="search-wrapper">
        <div class="search-wrapper__item search-input-wrapper">
            <input type="text" placeholder="Поиск" class="search-input" v-model="currentSearch">
-           <button class="clear-button" @click="currentSearch = ''" v-if="currentSearch.length">
+           <button class="clear-button transparent-button" @click="currentSearch = ''" v-if="currentSearch.length">
                <unicon name="times"
                        fill="#91a5af"
                        style="display: flex"
