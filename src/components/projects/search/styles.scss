@@ -9,6 +9,26 @@
   }
 }
 
+.search-input-wrapper{
+  position: relative;
+
+  .clear-button{
+    position: absolute;
+    height: 39px;
+    width: 39px;
+    top: 0;
+    right: 0;
+    background: transparent;
+    outline: none;
+    border: none;
+    transition: all ease-in-out 0.2s;
+    &:hover{
+      transform: scale(1.1);
+      transition: all ease-in-out 0.2s;
+    }
+  }
+}
+
 
 .search-button{
   border: none;
@@ -17,7 +37,6 @@
   margin: 0;
   outline: none;
   transition: all ease-in-out 0.2s;
-  //border-radius: 50%;
   display: flex;
   justify-content: center;
   border-top-right-radius: 2px;

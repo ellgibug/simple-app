@@ -67,7 +67,7 @@ Vue.use(Unicon)
 Vue.use(require('vue-moment'));
 Vue.use(VueGrid, {
     columns: 12,
-    gutter: 16,
+    gutter: 12,
     breakpoints: {
         xs: 320,
         sm: 576,

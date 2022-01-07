@@ -61,7 +61,7 @@
                     </column>
 
                     <column :lg="7">
-                        <div class="ml-20 height-100">
+                        <div class="height-100">
                             <div class="project-full-info-container" v-if="project.id">
                                 <FullInfo :project="project" :key="project.id"/>
                             </div>

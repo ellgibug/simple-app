@@ -2,8 +2,6 @@ import {mapGetters} from "vuex";
 import request from "../../../helpers/request";
 import HDialog from "../../../components/dialog/index"
 import Page from "../../../components/ui/page"
-import Container from "../../../components/ui/container"
-import Col from "../../../components/ui/col"
 import HButton from "../../../components/ui/HButton"
 import Breadcrumbs from "../../../ui/breadcrumbs"
 import CardOnList from "../../../components/projects/cardOnList"
