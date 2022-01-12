@@ -1,0 +1,27 @@
+@import "../../../styles/ui/colors";
+
+
+.projects {
+  &__item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+
+.project-full-info-container {
+  display: flex;
+  min-height: 100%;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.project-opening-hint {
+  display: flex;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: rgba(145, 165, 175, 0.87);
+}
+

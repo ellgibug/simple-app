@@ -1,4 +1,3 @@
-
 export default {
 
 
@@ -21,6 +20,15 @@ export default {
                 name: "Page",
                 params: {
                     code
+                }
+            })
+        },
+
+        addPage(){
+            this.$router.push({
+                name: "NewPage",
+                params: {
+                    code: this.project.code
                 }
             })
         },

@@ -61,6 +61,18 @@ export const inside = [
         }
     },
     {
+        path: '/projects/:code/new-page',
+        name: 'NewPage',
+        beforeEnter: ifAuthenticated,
+        meta: {
+            layout: 'inside/index',
+            title: 'NewPage'
+        },
+        component: function () {
+            return import('../views/inside/newPage/index')
+        }
+    },
+    {
         path: '/pages/:code',
         name: 'Page',
         beforeEnter: ifAuthenticated,
