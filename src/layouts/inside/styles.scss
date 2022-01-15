@@ -1,6 +1,7 @@
 .wrapper{
   font-family: 'Raleway', sans-serif;
   background: #f5f9fa;
+  position: relative;
 
   &__header{
 
@@ -12,6 +13,24 @@
 
   &__footer{
     min-height: 400px;
+  }
+
+  &__aside{
+    width: 600px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    //left: 0;
+    background: red;
+    transition: left ease-in-out 0.3s;
+
+    &.closed{
+      left: -600px;
+    }
+
+    &.opened{
+      left: 0;
+    }
   }
 
 }

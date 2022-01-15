@@ -44,6 +44,9 @@
             <container :xl="1188" >
                 <row>
                     <column>
+
+                        <button @click="asidePanel.isOpened = true">open</button>
+
                         Footer уриурпиоукп
 
                         coming soon - upload image, file
@@ -52,6 +55,11 @@
                 </row>
             </container>
         </div>
+
+        <aside :class="['wrapper__aside', asidePanel.isOpened ? 'opened' : 'closed']">
+            ebehjve
+            <button @click="asidePanel.isOpened = false">close</button>
+        </aside>
     </div>
 
 </template>

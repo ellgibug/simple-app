@@ -12,7 +12,9 @@ export default {
     },
 
     data: () => ({
-
+        asidePanel: {
+            isOpened: false
+        }
     }),
 
     computed: {
