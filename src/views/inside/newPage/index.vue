@@ -34,6 +34,17 @@
 
                 {{ page }}
 
+                <div class="mb-8 mt-8">
+                    <input
+                            type="file"
+                            ref="files"
+                            class="d-none"
+                            :multiple="false"
+                            v-on:change="handleFileUpload()"/>
+                </div>
+
+                {{ page.image }}
+
 
 
             </column>

@@ -17,8 +17,17 @@ export default {
         return axios.get(url).catch(unauthorizedHandler);
     },
 
-    post(url,formData = null){
-        return axios.post(url, formData).catch(unauthorizedHandler);
+    post(url,formData = null, sendFile = false){
+
+        let headers = {}
+
+        if(sendFile){
+            headers['Content-Type'] = 'multipart/form-data'
+        }
+
+        return axios.post(url, formData, {
+            headers
+        }).catch(unauthorizedHandler);
     },
 
     patch(url,formData = null){

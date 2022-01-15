@@ -9,6 +9,9 @@ import Search from "../../../components/projects/search"
 import FullInfo from "../../../components/projects/fullInfo"
 import Pagination from "../../../components/pagination"
 
+import axios from 'axios';
+
+
 
 export default {
     name: "NewPage",
@@ -21,7 +24,8 @@ export default {
             page: {
                 title: '',
                 body: '',
-                is_published: true
+                is_published: true,
+                image: ''
             }
 
         }
@@ -103,7 +107,22 @@ export default {
                 .catch(function (error) {
                     console.log(error)
                 })
-        }
+        },
+
+        handleFileUpload() {
+            const file = this.$refs.files.files[0];
+
+            console.log('file', file)
+
+            const formData = new FormData();
+            formData.append("image", file);
+
+            request.post(`upload-file`, formData, true)
+                .then(r => console.log(r))
+                .catch(e => console.log(e))
+                .finally(() => console.log('finally'))
+        },
+
     },
 
     beforeMount() {
