@@ -1,6 +1,8 @@
 <template>
+    <transition name="fade">
     <div class="dialog-wrapper" v-if="isOpen">
-        <div :class="['dialog', isOpen && 'dialog_opened']" ref="dialog">
+        <transition name="bounce">
+        <div :class="['dialog', isOpen2 && 'dialog_opened']" ref="dialog"  v-if="isOpen2">
 
             <div class="dialog__close">
                 <button class="transparent-button" @click="isOpen = false">
@@ -23,7 +25,9 @@
                 </HButton>
             </div>
         </div>
+        </transition>
     </div>
+    </transition>
 </template>
 
 <style src="./styles.scss" lang="scss" scoped></style>

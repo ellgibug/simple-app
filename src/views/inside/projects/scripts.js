@@ -52,8 +52,6 @@ export default {
         HButton,
         Page,
         Breadcrumbs,
-        // Container,
-        // Col,
         CardOnList,
         Pagination,
         Search,

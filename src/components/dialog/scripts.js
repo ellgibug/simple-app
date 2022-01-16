@@ -9,6 +9,7 @@ export default {
     },
 
     data: () => ({
+        isOpen2: false
     }),
 
     props: [
@@ -21,10 +22,14 @@ export default {
         isOpen() {
             if(this.isOpen){
                 document.body.style.overflow = 'hidden'
-                document.body.style.height = '100%'
+                setTimeout(() => {
+                    this.isOpen2 = true
+                }, 100)
             } else {
                 document.body.style.overflow = 'auto'
-                document.body.style.height = 'auto'
+
+                    this.isOpen2 = false
+
             }
         }
     },
