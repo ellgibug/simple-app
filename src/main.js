@@ -33,6 +33,33 @@ import {
 } from 'vue-unicons/src/icons'
 import "./styles/index.scss"
 
+import { ValidationObserver, ValidationProvider, extend, localize } from 'vee-validate';
+import ru from 'vee-validate/dist/locale/ru.json';
+import * as rules from 'vee-validate/dist/rules';
+
+
+localize('ru');
+
+// install rules and localization
+Object.keys(rules).forEach(rule => {
+    extend(rule, rules[rule]);
+});
+
+// localize({
+//     ru: {
+//         messages: {
+//             required: 'this field is required RU',
+//             min: 'this field must have no less than {length} characters RU',
+//             max: (_, { length }) => `this field must have no more than ${length} characters RU`
+//         }
+//     }
+// });
+
+
+Vue.component('ValidationProvider', ValidationProvider);
+Vue.component('ValidationObserver', ValidationObserver);
+
+
 require('dotenv').config();
 
 axios.defaults.baseURL = process.env.VUE_APP_API_URL;
