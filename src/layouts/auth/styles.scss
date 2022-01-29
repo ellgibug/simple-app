@@ -1,12 +1,80 @@
 @import "../../styles/ui/colors";
 
-.fade-enter, .fade-leave{
+.auth-page {
+  font-family: 'Raleway', sans-serif;
+  background: #DCE0E1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__card {
+    width: 500px;
+    height: 700px;
+    padding: 80px 60px;
+    background: radial-gradient(circle, rgba(127, 127, 127, 0.5) 0%, rgba(0, 0, 0, 0.2) 100%),
+                url("../../assets/space-nebula-background-compressed.jpg")
+                center center no-repeat;
+    background-size: cover;
+    //box-shadow: rgba(255, 255, 255, 0.5) 0px 1px 1px 0px inset,
+    //            rgba(50, 50, 93, 0.75) 0px 50px 100px -20px,
+    //            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: rgb(38, 57, 77) 0px 30px 60px -10px;
+  }
+}
+
+
+.fade-enter, .fade-leave {
   opacity: 0;
   transform: translateX(2em);
 }
 
-.fade-enter-active, .fade-leave-active{
-  transition: all 0.3s ease;
+.fade-enter-active, .fade-leave-active {
+  transition: all 0.5s ease;
+}
+
+
+.auth-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  &__header{
+    //margin-bottom: 60px;
+  }
+  &__form{
+
+  }
+  &__footer{
+
+  }
+}
+
+.auth-card-header{
+  text-transform: uppercase;
+  font-size: 26px;
+  display: flex;
+  margin: 0 -10px;
+  font-weight: 600;
+  &__item{
+    color: rgba(255,255,255,0.4);
+    padding: 0 10px 10px 10px;
+  }
+  &__item.active{
+    color: rgba(255,255,255,0.9);
+    border-bottom: 3px solid #7042ee;
+  }
+}
+
+.auth-card-footer{
+  display: flex;
+  justify-content: center;
+  padding: 40px 0 0 0;
+  &__link{
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    font-size: 18px;
+  }
 }
 
 
