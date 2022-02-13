@@ -1,59 +1,124 @@
 <template>
-    <div class="a-page-card">
-        <div class="a-page-card__title">Регистрация</div>
-        <div class="a-page-card__form">
-            <div v-if="step === STEPS.PERSONAL_DATA">
-                <div class="form">
-                    <div class="form__item">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" v-model="name"/>
+<!--    <div class="a-page-card">-->
+<!--        <div class="a-page-card__title">Регистрация</div>-->
+<!--        <div class="a-page-card__form">-->
+<!--            <div v-if="step === STEPS.PERSONAL_DATA">-->
+<!--                <div class="form">-->
+<!--                    <div class="form__item">-->
+<!--                        <label for="name">Name</label>-->
+<!--                        <input type="text" id="name" v-model="name"/>-->
+<!--                    </div>-->
+<!--                    <div class="form__item">-->
+<!--                        <label for="email">Email</label>-->
+<!--                        <input type="text" id="email" v-model="email"/>-->
+<!--                    </div>-->
+<!--                    <div class="form__item">-->
+<!--                        <label for="password">Password</label>-->
+<!--                        <input type="text" id="password" v-model="password"/>-->
+<!--                    </div>-->
+<!--                    <div class="form__item">-->
+<!--                        <label for="passwordConfirmation">Password Confirmation</label>-->
+<!--                        <input type="text" id="passwordConfirmation" v-model="passwordConfirmation"/>-->
+<!--                    </div>-->
+<!--                    <div class="form__item">-->
+<!--                        <button @click="goToOrganizationStep">Go to 2 of 2 step</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div v-if="step === STEPS.ORGANIZATION_DATA">-->
+<!--                <div class="form">-->
+<!--                    <div class="form__item">-->
+<!--                        <label for="isOrganizationExists">Зарегистрироваться в сущетсвующую организацию</label>-->
+<!--                        <input type="checkbox" id="isOrganizationExists" v-model="isOrganizationExists"/>-->
+<!--                    </div>-->
+<!--                    <div class="form__item" v-if="isOrganizationExists">-->
+<!--                        <label for="organizationCode">Код организации</label>-->
+<!--                        <input type="text" id="organizationCode" v-model="organizationCode"/>-->
+<!--                    </div>-->
+<!--                    <div class="form__item">-->
+<!--                        <button @click="sendRegisterRequest">Register</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="a-page-card__links links">-->
+<!--            <div class="links__item">-->
+<!--                <router-link :to="{name: 'Login'}">-->
+<!--                    Login-->
+<!--                </router-link>-->
+<!--            </div>-->
+<!--            <div class="links__item">-->
+<!--                <router-link :to="{name: 'ForgotPassword'}">-->
+<!--                    Forgot Password-->
+<!--                </router-link>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="height-100">
+        <AuthCard>
+            <ValidationObserver v-slot="{ invalid }">
+                <form @submit.prevent="onSubmit" class="auth-form">
+                    <div class="auth-form__item">
+                        <ValidationProvider name="Name" rules="required|alpha" v-slot="{ errors }">
+                            <TextInput
+                                    v-bind:value="name"
+                                    v-on:input="name = $event"
+                                    id="name"
+                                    name="name"
+                                    type="name"
+                                    label="Имя"
+                                    :errors="errors"
+                            />
+                        </ValidationProvider>
                     </div>
-                    <div class="form__item">
-                        <label for="email">Email</label>
-                        <input type="text" id="email" v-model="email"/>
+                    <div class="auth-form__item">
+                        <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors }">
+                            <TextInput
+                                    v-bind:value="email"
+                                    v-on:input="email = $event"
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    label="E-mail"
+                                    :errors="errors"
+                            />
+                        </ValidationProvider>
                     </div>
-                    <div class="form__item">
-                        <label for="password">Password</label>
-                        <input type="text" id="password" v-model="password"/>
+                    <div class="auth-form__item">
+                        <ValidationProvider name="Password" rules="required" v-slot="{ errors }">
+                            <TextInput
+                                    v-bind:value="password"
+                                    v-on:input="password = $event"
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    label="Пароль"
+                                    :errors="errors"
+                            />
+                        </ValidationProvider>
                     </div>
-                    <div class="form__item">
-                        <label for="passwordConfirmation">Password Confirmation</label>
-                        <input type="text" id="passwordConfirmation" v-model="passwordConfirmation"/>
+                    <div class="auth-form__item">
+                        <ValidationProvider name="Password confirmation" rules="required" v-slot="{ errors }">
+                            <TextInput
+                                    v-bind:value="password"
+                                    v-on:input="password = $event"
+                                    id="passwordConfirmation"
+                                    name="passwordConfirmation"
+                                    type="password"
+                                    label="Подтверждение пароля"
+                                    :errors="errors"
+                            />
+                        </ValidationProvider>
                     </div>
-                    <div class="form__item">
-                        <button @click="goToOrganizationStep">Go to 2 of 2 step</button>
+                    <div class="auth-form__item">
+                        <button type="submit" :disabled="invalid" class="auth-form-button">Submit</button>
                     </div>
-                </div>
-            </div>
-            <div v-if="step === STEPS.ORGANIZATION_DATA">
-                <div class="form">
-                    <div class="form__item">
-                        <label for="isOrganizationExists">Зарегистрироваться в сущетсвующую организацию</label>
-                        <input type="checkbox" id="isOrganizationExists" v-model="isOrganizationExists"/>
-                    </div>
-                    <div class="form__item" v-if="isOrganizationExists">
-                        <label for="organizationCode">Код организации</label>
-                        <input type="text" id="organizationCode" v-model="organizationCode"/>
-                    </div>
-                    <div class="form__item">
-                        <button @click="sendRegisterRequest">Register</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="a-page-card__links links">
-            <div class="links__item">
-                <router-link :to="{name: 'Login'}">
-                    Login
-                </router-link>
-            </div>
-            <div class="links__item">
-                <router-link :to="{name: 'ForgotPassword'}">
-                    Forgot Password
-                </router-link>
-            </div>
-        </div>
+                </form>
+            </ValidationObserver>
+        </AuthCard>
     </div>
+
 </template>
 
 <style src="./styles.scss" lang="scss" scoped></style>

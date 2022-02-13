@@ -1,9 +1,17 @@
 import request from "../../../helpers/request";
 import {mapActions, mapGetters} from "vuex"
 import {USER_CONSTANTS} from "../../../constants/user";
+import TextInput from "../../../components/auth/textInput"
+import AuthCard from "../../../components/auth/authCard"
+
 
 export default {
     name: "register",
+
+    components: {
+        TextInput,
+        AuthCard
+    },
 
     data() {
         const STEPS = {

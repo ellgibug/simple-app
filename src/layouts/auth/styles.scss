@@ -10,11 +10,10 @@
 
   &__card {
     width: 500px;
-    height: 600px;
+    height: 800px;
     padding: 80px 60px;
-    background: linear-gradient(183deg, rgba(106,0,255,0.3) 0%, rgba(0,0,0,0.8) 100%),
-                url("../../assets/space-nebula-background-compressed.jpg")
-                center center no-repeat;
+    background: linear-gradient(183deg, rgba(106, 0, 255, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%),
+    url("../../assets/space-nebula-background-compressed.jpg") center center no-repeat;
     background-size: cover;
     box-shadow: rgb(38, 57, 77) 0 30px 60px -10px;
   }
@@ -31,57 +30,65 @@
 }
 
 
-.auth-card{
+.auth-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  &__header{
+
+  &__header {
     //margin-bottom: 60px;
   }
-  &__form{
+
+  &__form {
 
     color: white;
 
   }
-  &__footer{
+
+  &__footer {
 
   }
 }
 
-.auth-card-header{
+.auth-card-header {
   text-transform: uppercase;
   font-size: 26px;
   display: flex;
   margin: 0 -10px;
   font-weight: 600;
-  &__item{
+
+  &__item {
     padding: 0 30px 10px 30px;
-    a{
-      color: rgba(255,255,255,0.4);
+
+    a {
+      color: rgba(255, 255, 255, 0.4);
       text-decoration: none;
       transition: all ease-in-out 0.3s;
-      &:hover{
-        color: rgba(255,255,255,0.9);
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.9);
         transition: all ease-in-out 0.3s;
       }
     }
   }
-  &__item.active{
-    color: rgba(255,255,255,0.9);
+
+  &__item.active {
+    color: rgba(255, 255, 255, 0.9);
     border-bottom: 3px solid #7042ee;
   }
 }
 
-.auth-form{
-  &__item:not(:last-child){
+.auth-form {
+  &__item:not(:last-child) {
     margin-bottom: 20px;
   }
-  &__item:last-child{
+
+  &__item:last-child {
     margin-top: 40px;
   }
 
-  .auth-form-button{
+  .auth-form-button {
     text-align: center;
     width: 100%;
     border: none;
@@ -91,19 +98,21 @@
     color: white;
     font-weight: 500;
     background: #7042ee;
-    &:disabled{
+
+    &:disabled {
       opacity: 0.5;
       pointer-events: none;
       background: #4e3f78;
     }
 
-    &:hover:not(:disabled){
+    &:hover:not(:disabled) {
       background: #643BD6;
       cursor: pointer;
       transition: all ease-in-out 0.2s;
       box-shadow: 0 0 0 0.2rem rgba(61, 109, 253, 0.15);
     }
-    &:active:not(:disabled){
+
+    &:active:not(:disabled) {
       background: #5A35C0;
       transition: all ease-in-out 0.2s;
       box-shadow: 0 0 0 0.2rem rgba(61, 109, 253, 0.25);
@@ -111,24 +120,109 @@
   }
 }
 
-.auth-card-footer{
-  border-top: 2px solid rgba(255,255,255,0.2);
+.auth-card-footer {
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
   display: flex;
   justify-content: center;
   padding: 40px 0 0 0;
-  &__link{
+
+  &__link {
 
     font-weight: 500;
     font-size: 16px;
-    a{
-      color: rgba(255,255,255,0.5);
+
+    a {
+      color: rgba(255, 255, 255, 0.5);
       text-decoration: none;
       transition: all ease-in-out 0.3s;
-      &:hover{
-        color: rgba(255,255,255,0.9);
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.9);
         transition: all ease-in-out 0.3s;
       }
     }
   }
 }
 
+
+@media screen and (max-width: 1500px) {
+  .auth-page {
+    &__card {
+      height: 600px;
+      padding: 40px 60px;
+    }
+  }
+
+  .auth-card-header {
+    font-size: 22px;
+
+    &__item {
+      padding: 0 20px 10px 20px;
+    }
+  }
+
+
+  .auth-form {
+    &__item:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &__item:last-child {
+      margin-top: 20px;
+    }
+  }
+
+  .auth-card-footer {
+    padding: 20px 0 0 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .auth-page {
+    &__card {
+      height: 100%;
+      background: linear-gradient(183deg, rgba(25, 0, 62, 0.9) 0%, rgba(0, 0, 0, 0.8) 100%),
+      url("../../assets/space-nebula-background-compressed.jpg") center center no-repeat;
+    }
+  }
+
+  .auth-form {
+    &__item:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &__item:last-child {
+      margin-top: 20px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 450px) {
+  .auth-page {
+    &__card {
+      padding: 50px 30px;
+    }
+  }
+
+  .auth-card-header {
+    font-size: 22px;
+
+    &__item {
+      padding: 0 10px 10px 10px;
+    }
+  }
+
+}
+
+
+@media screen and (max-width: 350px) {
+  .auth-card-header {
+    font-size: 20px;
+
+    &__item {
+      padding: 0 7px 10px 7px;
+    }
+  }
+
+}

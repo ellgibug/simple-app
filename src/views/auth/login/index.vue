@@ -1,16 +1,6 @@
 <template>
-    <div class="auth-card">
-        <div class="auth-card__header">
-            <div class="auth-card-header">
-                <div class="auth-card-header__item active">Логин</div>
-                <div class="auth-card-header__item">
-                    <router-link :to="{name: 'Register'}">
-                        Регистрация
-                    </router-link>
-                </div>
-            </div>
-        </div>
-        <div class="auth-card__form">
+    <div class="height-100">
+        <AuthCard>
             <ValidationObserver v-slot="{ invalid }">
                 <form @submit.prevent="onSubmit" class="auth-form">
                     <div class="auth-form__item">
@@ -44,18 +34,8 @@
                     </div>
                 </form>
             </ValidationObserver>
-        </div>
-        <div class="auth-card__footer">
-            <div class="auth-card-footer">
-                <div class="auth-card-footer__link">
-                    <router-link :to="{name: 'ForgotPassword'}">
-                        Забыли пароль?
-                    </router-link>
-                </div>
-            </div>
-        </div>
+        </AuthCard>
     </div>
-
 </template>
 
 <!--<style src="./styles.scss" lang="scss" scoped></style>-->
