@@ -13,11 +13,11 @@ export default {
     },
 
     data: () => ({
-        // email: 'johndoe@gmail.com',
-        // password: 'password',
+        email: 'johndoe@gmail.com',
+        password: 'password',
 
-        email: '',
-        password: '',
+        // email: '',
+        // password: '',
     }),
 
     methods: {
@@ -58,7 +58,7 @@ export default {
                         that.setToken(response.data.token)
                         that.setIsAuthed(true)
                         that.setUser(response.data.user)
-                        // window.location.reload()
+                        window.location.reload()
                     }
                 })
                 .catch(function (error) {
