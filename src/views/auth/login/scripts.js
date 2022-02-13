@@ -2,6 +2,7 @@ import request from "../../../helpers/request";
 import {mapActions, mapGetters} from "vuex"
 import TextInput from "../../../components/auth/textInput"
 import AuthCard from "../../../components/auth/authCard"
+import {NOTIFICATION_TYPE} from "../../../store/notification";
 
 export default {
     name: "login",
@@ -22,6 +23,7 @@ export default {
 
     methods: {
         ...mapActions("user", ["setIsAuthed", "setToken", "setUser"]),
+        ...mapActions("notification", ["setNotification"]),
 
 
         sendLoginRequest() {
@@ -61,7 +63,12 @@ export default {
                         window.location.reload()
                     }
                 })
-                .catch(function (error) {
+                .catch(error => {
+                    this.setNotification({
+                        type: NOTIFICATION_TYPE.ERROR,
+                        isVisible: true,
+                        text: 'Неверный логин или пароль'
+                    })
                     console.log(error);
                 });
         },
