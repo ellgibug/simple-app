@@ -11,6 +11,7 @@
                     :id="id"
                     :name="name"
                     :type="type"
+                    v-mask="mask"
                     v-bind:value="value"
                     v-on:input="$emit('input', $event.target.value)"/>
             <button class="clear-button transparent-button" @click="$emit('input', '')" v-if="value.length">

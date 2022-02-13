@@ -2,7 +2,10 @@ import request from "../../../helpers/request";
 import {mapActions, mapGetters} from "vuex"
 import {USER_CONSTANTS} from "../../../constants/user";
 import TextInput from "../../../components/auth/textInput"
+import AuthCheckbox from "../../../components/auth/authCheckbox"
 import AuthCard from "../../../components/auth/authCard"
+import {NOTIFICATION_TYPE} from "../../../store/notification";
+
 
 
 export default {
@@ -10,6 +13,7 @@ export default {
 
     components: {
         TextInput,
+        AuthCheckbox,
         AuthCard
     },
 
@@ -36,6 +40,50 @@ export default {
 
     methods: {
         ...mapActions("user", ["setIsAuthed", "setToken", "setUser"]),
+        ...mapActions("notification", ["setNotification"]),
+
+
+        onSubmit() {
+            const that = this;
+
+            if(this.step === this.STEPS.PERSONAL_DATA){
+                this.step = this.STEPS.ORGANIZATION_DATA
+                return
+            }
+
+            if(this.step === this.STEPS.ORGANIZATION_DATA){
+
+
+                request.post('register', {
+                    name: this.name,
+                    email: this.email,
+                    password: this.password,
+                    password_confirmation: this.passwordConfirmation,
+                    role: this.isOrganizationExists ? USER_CONSTANTS.REQUEST_USER_TYPE_WITH_ORGANIZATION : USER_CONSTANTS.REQUEST_USER_TYPE_WITHOUT_ORGANIZATION,
+                    organization_code: this.organizationCode
+                })
+                    .then(function (response) {
+                        if(response.data.token){
+                            that.setToken(response.data.token)
+                            that.setIsAuthed(true)
+                            that.setUser(response.data.user)
+                            window.location.reload()
+                        }
+                    })
+                    .catch(error => {
+                        this.setNotification({
+                            type: NOTIFICATION_TYPE.ERROR,
+                            isVisible: true,
+                            text: 'Неверный логин или пароль'
+                        })
+                        console.log(error);
+                    });
+
+
+            }
+
+
+        },
 
         goToOrganizationStep(){
 

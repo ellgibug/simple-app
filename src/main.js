@@ -33,6 +33,10 @@ import {
 } from 'vue-unicons/src/icons'
 import "./styles/index.scss"
 
+import { VueMaskDirective } from 'v-mask'
+Vue.directive('mask', VueMaskDirective);
+
+
 import { ValidationObserver, ValidationProvider, extend, localize } from 'vee-validate';
 import ru from 'vee-validate/dist/locale/ru.json';
 import * as rules from 'vee-validate/dist/rules';
