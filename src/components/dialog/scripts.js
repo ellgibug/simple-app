@@ -27,7 +27,6 @@ export default {
                 }, 100)
             } else {
                 document.body.style.overflow = 'auto'
-
                     this.isOpen2 = false
 
             }

@@ -3,7 +3,7 @@
     <div class="wrapper">
         <div class="wrapper__item">
             <div class="wrapper__header">
-                <h_header/>
+                <h_header @openMobileMenu="asidePanel.isOpened = true"/>
             </div>
             <main class="wrapper__main">
                 <container :xl="1188" >
@@ -33,10 +33,33 @@
             </div>
         </div>
 
-        <aside :class="['wrapper__aside', asidePanel.isOpened ? 'opened' : 'closed']">
-            ebehjve
-            <button @click="asidePanel.isOpened = false">close</button>
-        </aside>
+        <div :class="['wrapper__aside_1', asidePanel.isOpened ? 'opened' : 'closed']" ref="mobileMenuWrapper">
+            <aside :class="['wrapper__aside', asidePanel.isOpened ? 'opened' : 'closed']">
+
+                <div>
+                    Личный кабинет
+                </div>
+
+                <div>
+                    Проекты
+                </div>
+
+
+                <div>
+                    Организация
+                </div>
+
+                <div>
+                    Выход
+                </div>
+
+
+
+                <button @click="asidePanel.isOpened = false">close</button>
+            </aside>
+        </div>
+
+
     </div>
 
 </template>

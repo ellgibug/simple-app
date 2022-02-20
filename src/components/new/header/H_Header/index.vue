@@ -23,7 +23,7 @@
                         <div class="header-links__item logout" @click="sendLogoutRequest">
                             <HeaderLink iconName="sign-out-alt"/>
                         </div>
-                        <div class="header-links__item burger" @click="openMenu">
+                        <div class="header-links__item burger" @click="$emit('openMobileMenu')">
                             <HeaderLink iconName="bars" :large="true"/>
                         </div>
                     </div>

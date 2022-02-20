@@ -17,6 +17,16 @@ export default {
         }
     }),
 
+    watch: {
+        'asidePanel.isOpened'(){
+            if(this.asidePanel.isOpened){
+                document.body.style.overflow = 'hidden'
+            } else {
+                document.body.style.overflow = 'auto'
+            }
+        }
+    },
+
     computed: {
         ...mapGetters("user", ["user"]),
 
@@ -43,5 +53,19 @@ export default {
                     console.log(error);
                 });
         },
+
+        handleOutsideClick (e) {
+            if(this.$refs.mobileMenuWrapper === e.target) {
+                this.asidePanel.isOpened = false
+            }
+        },
+    },
+
+    mounted() {
+        document.addEventListener('mousedown', this.handleOutsideClick)
+    },
+
+    destroyed(){
+        document.removeEventListener('mousedown', this.handleOutsideClick)
     }
 }

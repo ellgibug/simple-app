@@ -50,7 +50,7 @@ export default {
         },
 
         openMenu() {
-
+            console.log('oopen')
         }
 
     },
