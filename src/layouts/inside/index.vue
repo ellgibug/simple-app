@@ -35,27 +35,13 @@
 
         <div :class="['wrapper__aside_1', asidePanel.isOpened ? 'opened' : 'closed']" ref="mobileMenuWrapper">
             <aside :class="['wrapper__aside', asidePanel.isOpened ? 'opened' : 'closed']">
-
-                <div>
-                    Личный кабинет
-                </div>
-
-                <div>
-                    Проекты
-                </div>
-
-
-                <div>
-                    Организация
-                </div>
-
-                <div>
-                    Выход
-                </div>
-
-
-
-                <button @click="asidePanel.isOpened = false">close</button>
+                <MobileMenu/>
+                <button class="close-button clear-button transparent-button" @click="asidePanel.isOpened = false">
+                    <unicon name="times"
+                            fill="#000"
+                            style="display: flex"
+                            height="20"/>
+                </button>
             </aside>
         </div>
 

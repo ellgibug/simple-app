@@ -1,6 +1,7 @@
 import request from "../../helpers/request";
 import {mapActions, mapGetters} from "vuex"
 import h_header from "../../components/new/header/H_Header"
+import MobileMenu from "../../components/new/mobileMenu/MobileMenu"
 
 export default {
     name: "InsideLayout",
@@ -8,6 +9,7 @@ export default {
 
     components: {
         h_header,
+        MobileMenu
 
     },
 
