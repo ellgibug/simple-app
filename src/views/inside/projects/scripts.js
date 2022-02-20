@@ -128,6 +128,15 @@ export default {
          * @param code
          */
         loadProject(code) {
+            if(window.innerWidth <= 991){
+                this.$router.push({
+                    name: "Project",
+                    params: {
+                        code
+                    }
+                })
+                return
+            }
 
             const that = this
 
