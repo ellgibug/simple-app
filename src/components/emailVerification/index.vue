@@ -1,24 +1,4 @@
 <template>
-<!--    <div style="border: 2px solid #ccc; padding: 10px; margin: 10px">-->
-<!--        <h2>Email confirmation</h2>-->
-<!--        <div v-if="new Date().getTime() < new Date(user.email_verification_code_expired_at).getTime()">-->
-<!--            Если время жизни токена валидно, то показываем поле для ввода кода подтверждения-->
-<!--            <div class="form">-->
-<!--                <div class="form__item">-->
-<!--                    <label for="verificationCode">Код подтверждения</label>-->
-<!--                    <input type="text" id="verificationCode" v-model="verificationCode"/>-->
-<!--                </div>-->
-<!--                <div class="form__item">-->
-<!--                    <button @click="verifyEmail">Verify email</button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div v-else>-->
-<!--            Показываем кнопку с повторным запросом кода подтверждения-->
-<!--            <button @click="sendEmailVerificationLetter">send Email Verification Letter</button>-->
-<!--        </div>-->
-<!--    </div>-->
-
     <div class="confirmation">
         <div class="confirmation__title">
             Подтверждение email
@@ -27,14 +7,15 @@
             <div class="body">
                 <template v-if="new Date().getTime() < new Date(user.email_verification_code_expired_at).getTime()">
                     <div class="body__text">
-                        Введите полученный код подтверждения
+                        Введите полученный код подтверждения (как в поиске)
                     </div>
                     <div class="body__button">
                         <input type="text" id="verificationCode" v-model="verificationCode" autocomplete="false"/>
                         <button @click="verifyEmail">
                             <unicon name="check"
-                                    fill="#fff"
-                                    height="40" width="40"
+                                    style="display: flex"
+                                    fill="#f5f9fa"
+                                    height="25" width="25"
                             />
                         </button>
                     </div>
@@ -44,7 +25,9 @@
                         Отправить код на указанный email еще раз
                     </div>
                     <div class="body__button2">
-                        <button @click="sendEmailVerificationLetter">Отправить</button>
+                        <HButton @handleClick="sendEmailVerificationLetter">
+                            Отправить
+                        </HButton>
                     </div>
                 </template>
             </div>

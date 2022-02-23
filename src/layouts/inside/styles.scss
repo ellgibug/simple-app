@@ -7,6 +7,14 @@
   flex-direction: column;
   justify-content: space-between;
 
+  //background-attachment: fixed; background-repeat: repeat; background-image: url("http://www.pattern4site.ru/images/texture/_rebig/70-fon-dlya-sayta.png"); background-position: left top;
+
+
+
+  &.with-pattern{
+    background-attachment: fixed; background-repeat: repeat; background-image: url("http://www.pattern4site.ru/images/texture/_rebig/35-fon-dlya-sayta.png"); background-position: left top;
+  }
+
   &__header {
 
   }
@@ -17,9 +25,11 @@
 
   &__footer {
     min-height: 400px;
-    background: rgba(0, 0, 0, .2);
+    //background: rgba(0, 0, 0, .2);
+    background: #4c5866;
     margin-top: auto;
     padding: 40px 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset;
   }
 
   &__aside {

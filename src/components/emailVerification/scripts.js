@@ -1,5 +1,7 @@
 import request from "../../helpers/request";
 import {mapActions, mapGetters} from "vuex"
+import HButton from "../../components/ui/HButton"
+
 
 export default {
     name: "emailVerification",
@@ -8,12 +10,17 @@ export default {
         verificationCode: '',
     }),
 
+    components: {
+        HButton,
+    },
+
     computed: {
         ...mapGetters("user", ["user"]),
 
 
 
     },
+
 
     methods: {
         ...mapActions("user", ["setIsAuthed", "setToken", "setUser"]),

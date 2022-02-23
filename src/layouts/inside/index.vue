@@ -1,6 +1,6 @@
 <template>
 
-    <div class="wrapper">
+    <div :class="['wrapper', $route.name === 'Dashboard' ? 'with-pattern' : '']">
         <div class="wrapper__item">
             <div class="wrapper__header">
                 <h_header @openMobileMenu="asidePanel.isOpened = true"/>
