@@ -15,7 +15,7 @@
                                     :checked="checkedVariants.includes(variant.id)"
                                     v-model="checkedVariants">
 
-                            <span>
+                            <span class="span">
                                 <template v-if="checkedVariants.includes(variant.id)">
                                     <unicon name="check-square"
                                             fill="#fff"
@@ -30,6 +30,7 @@
                                 </template>
 
                                 {{ variant.value }}
+                                <span v-if="variant.additional" class="additional">{{ variant.additional }}</span>
                             </span>
                         </label>
                     </div>

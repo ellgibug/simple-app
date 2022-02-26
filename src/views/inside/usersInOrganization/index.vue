@@ -10,6 +10,19 @@
             </row>
         </template>
 
+<!--        <div class="mb-20">-->
+<!--            <div class="organization">-->
+<!--                <span class="organization__code"> {{ organization.code }}</span>-->
+<!--                <span class="organization__name">{{ organization.title }}</span>-->
+<!--                <span class="organization__users"> {{ users.length}}</span>-->
+
+
+
+
+<!--            </div>-->
+
+<!--        </div>-->
+
         <!-- Поиск и создание -->
         <div class="mb-20">
             <row>
@@ -18,7 +31,7 @@
                         <column :lg="3" :md="7" :sm="6" :xs="9">
                             <Search :search="search" @startSearch="startSearch"/>
                         </column>
-                        <column :lg="6" :md="5" :sm="6" :xs="3">
+                        <column :lg="9" :md="5" :sm="6" :xs="3">
                             <div class="filter-roles">
                                 <div v-for="filterGroup in filterGroups" class="filter-roles__item">
                                     <FilterGroup
@@ -41,7 +54,6 @@
             </row>
         </div>
 
-<!--        {{ organization }}-->
 
         <row>
             <column :lg="12">

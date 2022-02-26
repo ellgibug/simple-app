@@ -75,6 +75,7 @@ export default {
                 {
                     id: 'needConfirmation',
                     value: "Ждут подтверждения",
+                    additional: this.users.filter(u => !u.is_confirmed_in_organization && u.role_id === 3).length
                 }
             ]
         },
