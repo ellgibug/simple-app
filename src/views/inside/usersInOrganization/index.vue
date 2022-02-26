@@ -1,31 +1,4 @@
 <template>
-    <!--    <div>-->
-
-    <!--        <div class="title">-->
-    <!--            Пользователи в организации-->
-    <!--        </div>-->
-
-    <!--        {{ user }}-->
-    <!--        <br>-->
-
-    <!--        <div v-for="user in users">-->
-
-<!--                {{user.id}} <br>-->
-<!--                {{user.code}} <br>-->
-<!--                {{user.name}} <br>-->
-<!--                {{user.email}} <br>-->
-<!--                {{user.organization_id}} <br>-->
-<!--                is_email_verified {{user.is_email_verified}} <br>-->
-<!--                is_confirmed_in_organization {{user.is_confirmed_in_organization}} <br>-->
-<!--                {{ user.role.title }}-->
-
-<!--                <button v-if="!user.is_confirmed_in_organization && user.role_id === 3" @click="confirm(user)">Подтвердить в организации</button>-->
-
-    <!--            <hr>-->
-    <!--        </div>-->
-
-
-    <!--    </div>-->
     <Page title="Пользователи">
 
         <!-- Хлебные крошки -->
@@ -40,20 +13,35 @@
         <!-- Поиск и создание -->
         <div class="mb-20">
             <row>
-                <column :lg="5" :md="12">
+                <column :lg="12" :md="12">
                     <row>
-                        <column :lg="7" :md="7" :sm="6" :xs="9">
+                        <column :lg="3" :md="7" :sm="6" :xs="9">
                             <Search :search="search" @startSearch="startSearch"/>
                         </column>
-                        <column :lg="5" :md="5" :sm="6" :xs="3">
-
+                        <column :lg="6" :md="5" :sm="6" :xs="3">
+                            <div class="filter-roles">
+                                <div v-for="filterGroup in filterGroups" class="filter-roles__item">
+                                    <FilterGroup
+                                            :key="filterGroupKey(filterGroup)"
+                                            :filterGroup="filterGroup"
+                                            @sendDataFromChildFilterComponent="getFilterData"
+                                    />
+                                </div>
+                            </div>
                         </column>
+<!--                        <column :lg="3" :md="7" :sm="6" :xs="9">-->
+<!--                            <Pagination-->
+<!--                                    :page="pagination.page"-->
+<!--                                    :total="pagination.maxPage"-->
+<!--                                    @pageUpdated="pageUpdated"-->
+<!--                                    :key="`${pagination.page}${pagination.maxPage}`"/>-->
+<!--                        </column>-->
                     </row>
                 </column>
             </row>
         </div>
 
-        {{ organization }}
+<!--        {{ organization }}-->
 
         <row>
             <column :lg="12">
@@ -70,11 +58,7 @@
         <div class="mt-20">
             <row>
                 <column :lg="5">
-                    <Pagination
-                            :page="pagination.page"
-                            :total="pagination.maxPage"
-                            @pageUpdated="pageUpdated"
-                            :key="`${pagination.page}${pagination.maxPage}`"/>
+
                 </column>
             </row>
         </div>

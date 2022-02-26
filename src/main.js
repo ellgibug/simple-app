@@ -30,7 +30,7 @@ import {
     uniSearchAlt,
     uniPlus,
     uniHome,
-    uniCalender, uniStar, uniEnvelope,
+    uniCalender, uniStar, uniEnvelope, uniCheckSquare, uniSquareFull,
 
 } from 'vue-unicons/src/icons'
 import "./styles/index.scss"
@@ -100,7 +100,9 @@ Unicon.add([
     uniHome,
     uniCalender,
     uniStar,
-    uniEnvelope
+    uniEnvelope,
+    uniCheckSquare,
+    uniSquareFull,
 ])
 Vue.use(Unicon)
 Vue.use(require('vue-moment'));

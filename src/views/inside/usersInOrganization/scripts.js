@@ -5,23 +5,22 @@ import Breadcrumbs from "../../../ui/breadcrumbs"
 import Search from "../../../components/projects/search"
 import Pagination from "../../../components/pagination"
 import UserCard from "../../../components/users/userCard"
-
+import FilterGroup from "../../../ui/filterGroup"
 
 
 export default {
-
-    name: "index",
-
+    name: "usersInOrganization",
 
     components: {
         Page,
         Breadcrumbs,
         Search,
         Pagination,
-        UserCard
+        UserCard,
+        FilterGroup
     },
 
-    data(){
+    data() {
         return {
             search: '',
             breadcrumbs: [
@@ -38,13 +37,76 @@ export default {
                 itemsPerPage: 1,
             },
 
-            smallWindow: false
+
+            filters: {
+                userType: {
+                    root: false,
+                    admin: false,
+                    user: false
+                },
+                needConfirmation: false,
+            },
         }
     },
 
 
     computed: {
         ...mapGetters("user", ["user"]),
+
+        filterUserType() {
+            return [
+                {
+                    id: 'root',
+                    value: "Рут",
+                },
+                {
+                    id: 'admin',
+                    value: "Админ",
+                },
+                {
+                    id: 'user',
+                    value: "Пользователь",
+                },
+            ]
+        },
+
+        filterNeedConfirmation() {
+            return [
+                {
+                    id: 'needConfirmation',
+                    value: "Ждут подтверждения",
+                }
+            ]
+        },
+
+        filterGroups() {
+            const selectedVariants = filters => {
+                let res = []
+                for (let item in filters) {
+                    if (filters.hasOwnProperty(item) && filters[item]) {
+                        res.push(item)
+                    }
+                }
+                return res
+            }
+
+
+            const filterUserType = {
+                name: 'filterUserType',
+                type: 'checkbox',
+                selectedVariants: selectedVariants(this.filters.userType),
+                variants: this.filterUserType,
+            }
+
+            const filterNeedConfirmation = {
+                name: 'filterNeedConfirmation',
+                type: 'checkbox',
+                selectedVariants: selectedVariants(this.filters.needConfirmation),
+                variants: this.filterNeedConfirmation,
+            }
+
+            return [filterUserType, filterNeedConfirmation]
+        },
 
     },
 
@@ -54,7 +116,7 @@ export default {
             const that = this;
 
             request.get(`organization/users/${this.user.organization.code}`)
-            // request.get(`organization/users/${this.user.organization.code}?unconfirmed=y`)
+                // request.get(`organization/users/${this.user.organization.code}?unconfirmed=y`)
                 .then(function (response) {
 
                     that.users = response.data.users
@@ -78,13 +140,30 @@ export default {
                 });
         },
 
-        startSearch(){
+        startSearch() {
             console.log('startSearch')
         },
 
         pageUpdated(page) {
             this.pagination.page = page
         },
+
+        /**
+         * Ключ для перерендеривания компонентов сгруппированных фильтров
+         * @param filter
+         * @returns {string|*}
+         */
+        filterGroupKey(filter) {
+            if (Array.isArray(filter.selectedVariants) && filter.selectedVariants.length) {
+                return `${filter.name}${filter.selectedVariants.join('')}`
+            }
+
+            return filter.name
+        },
+
+        getFilterData(filterData) {
+            console.log('f d', filterData)
+        }
     },
 
     beforeMount() {
