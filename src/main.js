@@ -29,7 +29,8 @@ import {
     uniAngleLeftB,
     uniSearchAlt,
     uniPlus,
-    uniHome
+    uniHome,
+    uniCalender, uniStar, uniEnvelope,
 
 } from 'vue-unicons/src/icons'
 import "./styles/index.scss"
@@ -97,6 +98,9 @@ Unicon.add([
     uniSearchAlt,
     uniPlus,
     uniHome,
+    uniCalender,
+    uniStar,
+    uniEnvelope
 ])
 Vue.use(Unicon)
 Vue.use(require('vue-moment'));

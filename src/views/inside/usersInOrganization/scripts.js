@@ -1,43 +1,48 @@
 import {mapGetters} from "vuex";
 import request from "../../../helpers/request";
-import MyTable from "../../../components/table/myTable"
+import Page from "../../../components/ui/page"
+import Breadcrumbs from "../../../ui/breadcrumbs"
+import Search from "../../../components/projects/search"
+import Pagination from "../../../components/pagination"
+import UserCard from "../../../components/users/userCard"
+
+
 
 export default {
 
     name: "index",
 
+
+    components: {
+        Page,
+        Breadcrumbs,
+        Search,
+        Pagination,
+        UserCard
+    },
+
     data(){
         return {
+            search: '',
+            breadcrumbs: [
+                {
+                    text: 'Пользователи',
+                },
+            ],
             users: [],
-            headers: [
-                {
-                    title: 'Id',
-                    key: 'id'
-                },
-                {
-                    title: 'Имя',
-                    key: 'name'
-                },
-                {
-                    title: 'E-mail',
-                    key: 'email'
-                },
-                {
-                    title: 'Роль',
-                    key: 'role_id'
-                },
-                {
-                    title: '',
-                    key: ''
-                }
-            ]
+            organization: {},
+            pagination: {
+                page: 1,
+                total: 0,
+                maxPage: 0,
+                itemsPerPage: 1,
+            },
+
+            smallWindow: false
         }
     },
 
 
-    components: {
-        MyTable
-    },
     computed: {
         ...mapGetters("user", ["user"]),
 
@@ -53,6 +58,7 @@ export default {
                 .then(function (response) {
 
                     that.users = response.data.users
+                    that.organization = response.data.organization
                     console.log(response)
                 })
                 .catch(function (error) {
@@ -70,7 +76,15 @@ export default {
                 .catch(function (error) {
                     console.log(error);
                 });
-        }
+        },
+
+        startSearch(){
+            console.log('startSearch')
+        },
+
+        pageUpdated(page) {
+            this.pagination.page = page
+        },
     },
 
     beforeMount() {
